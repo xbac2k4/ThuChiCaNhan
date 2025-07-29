@@ -3,13 +3,13 @@ import {
   BorderInStyleType,
   LayoutInStyleType,
   SpaceInStyleType,
-} from '../../common/modals';
-import {moderateScale, scale, verticalScale} from '../../utils/Responsive';
+} from 'common/modals';
+import {moderateScale, scale, verticalScale} from 'utils/Responsive';
 import React, {ReactNode} from 'react';
 import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 import {TouchableOpacity} from 'react-native-ui-lib';
-import {colors} from '../../constants/theme';
-import { ColorsDefault } from '../../assets/colors';
+import {colors} from 'constants/theme';
+import { ColorsDefault } from 'assets/colors';
 
 type BlockType = SpaceInStyleType &
   LayoutInStyleType &

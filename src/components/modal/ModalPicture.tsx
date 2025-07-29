@@ -1,14 +1,14 @@
-import Icons from '../../common/icons';
-import Block from '../../components/base/Block';
-import IconMT from '../../components/icon/IconMT';
-import { colors } from '../../constants/theme';
+import Icons from 'common/icons';
+import Block from 'components/base/Block';
+import IconMT from 'components/icon/IconMT';
+import { colors } from 'constants/theme';
 import React, { memo, useEffect, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Image, Modal } from 'react-native-ui-lib';
-import Zoomable from '../../components/animation/Zoomable';
+import Zoomable from 'components/animation/Zoomable';
 import { StyleSheet } from 'react-native';
-import { storeT } from '../../utils/Http';
+import { storeT } from 'utils/Http';
 
 type PictureType = {
   imagUrl?: string;

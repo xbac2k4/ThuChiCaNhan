@@ -1,4 +1,4 @@
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import { StyleSheet, TextStyle } from 'react-native';
 import Block from './Block';
 import Text from './Text';

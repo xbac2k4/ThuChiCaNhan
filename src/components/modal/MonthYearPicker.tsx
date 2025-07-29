@@ -1,7 +1,7 @@
-import Block from '../../components/base/Block';
-import Spacer from '../../components/base/Spacer';
-import Text from '../../components/base/Text';
-import { colors, fontSizes } from '../../constants/theme';
+import Block from 'components/base/Block';
+import Spacer from 'components/base/Spacer';
+import Text from 'components/base/Text';
+import { colors, fontSizes } from 'constants/theme';
 import { memo, useEffect, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { SafeAreaView } from 'react-native-safe-area-context';

@@ -1,4 +1,4 @@
-import { colors } from '../../constants/theme';
+import { colors } from 'constants/theme';
 import { memo } from 'react';
 import { TextInputProps } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';

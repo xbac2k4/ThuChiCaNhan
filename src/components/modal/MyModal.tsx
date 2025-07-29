@@ -1,15 +1,15 @@
-import Block from '../../components/base/Block';
-import InputLabel from '../../components/base/InputLabel';
-import Spacer from '../../components/base/Spacer';
-import Text from '../../components/base/Text';
-import { colors, fontSizes } from '../../constants/theme';
+import Block from 'components/base/Block';
+import InputLabel from 'components/base/InputLabel';
+import Spacer from 'components/base/Spacer';
+import Text from 'components/base/Text';
+import { colors, fontSizes } from 'constants/theme';
 import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { Modal } from 'react-native-ui-lib';
-import Icons from '../../common/icons';
+import Icons from 'common/icons';
 import { ReactNode, memo } from 'react';
 import isEqual from 'react-fast-compare';
-import IconMT from '../../components/icon/IconMT';
-import Button from '../../components/base/Button';
+import IconMT from 'components/icon/IconMT';
+import Button from 'components/base/Button';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

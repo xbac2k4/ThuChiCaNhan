@@ -2,7 +2,7 @@ import isEqual from 'react-fast-compare';
 import Block from './Block';
 import Text from './Text';
 import { memo } from 'react';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import { TextStyle, ViewStyle } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 

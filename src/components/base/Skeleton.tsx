@@ -2,7 +2,7 @@ import isEqual from 'react-fast-compare';
 import Block from './Block';
 import { ReactNode, memo } from 'react';
 import { SkeletonView } from 'react-native-ui-lib';
-import { colors } from '../../constants/theme';
+import { colors } from 'constants/theme';
 
 type SkeletonType = {
   isLoading: boolean;

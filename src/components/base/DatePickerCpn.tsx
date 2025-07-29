@@ -6,9 +6,9 @@ import { Calendar } from 'react-native-calendars';
 import ModalCpn from './ModalCpn';
 import { LocaleConfig } from 'react-native-calendars';
 import Text from './Text';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import moment from 'moment';
-import { DATE_FORMAT } from '../../utils/TimeUtil';
+import { DATE_FORMAT } from 'utils/TimeUtil';
 
 LocaleConfig.locales.fr = {
   monthNames: [

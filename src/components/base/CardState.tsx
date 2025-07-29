@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Block from './Block';
 import isEqual from 'react-fast-compare';
 import Text from './Text';
-import { colors } from '../../constants/theme';
+import { colors } from 'constants/theme';
 import { TextStyle } from 'react-native';
 
 type CardState = {

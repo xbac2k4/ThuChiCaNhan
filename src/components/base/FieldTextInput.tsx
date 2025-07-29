@@ -5,10 +5,10 @@ import isEqual from 'react-fast-compare';
 import Block from './Block';
 import React from 'react';
 import Text from './Text';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import { TextInput } from 'react-native';
-import IconMT from '../../components/icon/IconMT';
-import Icons from '../../common/icons';
+import IconMT from 'components/icon/IconMT';
+import Icons from 'common/icons';
 
 type Props = {
   value: string;

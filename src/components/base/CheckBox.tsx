@@ -2,9 +2,9 @@ import { memo } from 'react';
 import Block from './Block';
 import isEqual from 'react-fast-compare';
 import Text from './Text';
-import IconMT from '../../components/icon/IconMT';
-import Icons from '../../common/icons';
-import { colors, fontSizes, STATUS_COLOR } from '../../constants/theme';
+import IconMT from 'components/icon/IconMT';
+import Icons from 'common/icons';
+import { colors, fontSizes, STATUS_COLOR } from 'constants/theme';
 
 type CheckType = {
   title: string;

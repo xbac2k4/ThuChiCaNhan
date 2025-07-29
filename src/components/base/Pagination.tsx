@@ -1,10 +1,10 @@
 import { memo, useEffect, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import Block from './Block';
-import { colors } from '../../constants/theme';
-import { Paginate } from '../../common/type';
-import IconMT from '../../components/icon/IconMT';
-import Icons from '../../common/icons';
+import { colors } from 'constants/theme';
+import { Paginate } from 'common/type';
+import IconMT from 'components/icon/IconMT';
+import Icons from 'common/icons';
 import Text from './Text';
 
 type PaginateType = {

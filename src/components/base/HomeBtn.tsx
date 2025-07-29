@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import Block from './Block';
-import IconMT from '../../components/icon/IconMT';
+import IconMT from 'components/icon/IconMT';
 import Text from './Text';
 import { Image } from 'react-native-ui-lib';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import isEqual from 'react-fast-compare';
 
 interface PropsItem {

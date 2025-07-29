@@ -3,9 +3,9 @@ import isEqual from 'react-fast-compare';
 import { StyleSheet, View } from 'react-native';
 import { Badge } from 'react-native-ui-lib';
 import { connect, useSelector } from 'react-redux';
-import { colors } from '../../constants/theme';
-import IconMT from '../../components/icon/IconMT';
-import { RootState } from '../../store/store';
+import { colors } from 'constants/theme';
+import IconMT from 'components/icon/IconMT';
+import { RootState } from 'store/store';
 
 interface NotificationType {
   isforcus?: boolean;

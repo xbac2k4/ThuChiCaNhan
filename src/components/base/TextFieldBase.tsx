@@ -1,6 +1,6 @@
 import Block from './Block';
 import Spacer from './Spacer';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Assets, Button, Colors, TextField } from 'react-native-ui-lib';

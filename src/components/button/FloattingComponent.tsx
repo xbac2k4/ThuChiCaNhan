@@ -1,8 +1,8 @@
-import Block from '../../components/base/Block';
+import Block from 'components/base/Block';
 import React, { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import FloatCircleBtn from './FloatCircleBtn';
-import { BtnType } from '../../common/type';
+import { BtnType } from 'common/type';
 
 type Props = {
   btn: BtnType[];

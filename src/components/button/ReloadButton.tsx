@@ -1,6 +1,6 @@
-import Block from '../../components/base/Block';
-import IconMT from '../../components/icon/IconMT';
-import { colors } from '../../constants/theme';
+import Block from 'components/base/Block';
+import IconMT from 'components/icon/IconMT';
+import { colors } from 'constants/theme';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 

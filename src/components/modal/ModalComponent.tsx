@@ -1,4 +1,4 @@
-import Block from '../../components/base/Block';
+import Block from 'components/base/Block';
 import {ReactNode, memo, useState} from 'react';
 import isEqual from 'react-fast-compare';
 import {AlertModal} from './MyModal';

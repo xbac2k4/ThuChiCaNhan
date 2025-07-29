@@ -3,10 +3,10 @@ import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import Block from './Block';
 import Section from './Section';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import { TextInput } from 'react-native-gesture-handler';
-import IconMT from '../../components/icon/IconMT';
-import Icons from '../../common/icons';
+import IconMT from 'components/icon/IconMT';
+import Icons from 'common/icons';
 import { KeyboardTypeOptions, TextStyle } from 'react-native';
 
 type SectionInput = {

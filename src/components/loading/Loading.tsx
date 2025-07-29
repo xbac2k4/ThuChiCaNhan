@@ -1,6 +1,6 @@
-import Block from '../../components/base/Block';
-import Text from '../../components/base/Text';
-import {colors, fontSizes} from '../../constants/theme';
+import Block from 'components/base/Block';
+import Text from 'components/base/Text';
+import {colors, fontSizes} from 'constants/theme';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {useSelector} from 'react-redux';
 

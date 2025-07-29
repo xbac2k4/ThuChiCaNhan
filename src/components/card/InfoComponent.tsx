@@ -1,8 +1,8 @@
-import {FieldInfoType} from '../../common/type';
-import Block from '../../components/base/Block';
-import Text from '../../components/base/Text';
-import CardInfoItem from '../../components/cards/CardInfoItem';
-import {colors, fontSizes} from '../../constants/theme';
+import {FieldInfoType} from 'common/type';
+import Block from 'components/base/Block';
+import Text from 'components/base/Text';
+import CardInfoItem from 'components/cards/CardInfoItem';
+import {colors, fontSizes} from 'constants/theme';
 import {ReactNode, memo} from 'react';
 import isEqual from 'react-fast-compare';
 import {StyleSheet} from 'react-native';

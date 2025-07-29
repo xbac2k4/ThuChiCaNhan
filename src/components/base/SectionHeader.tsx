@@ -1,5 +1,5 @@
 import Block from './Block';
-import { colors, dimensions, fontSizes } from '../../constants/theme';
+import { colors, dimensions, fontSizes } from 'constants/theme';
 import React from 'react';
 import { Text } from 'react-native';
 

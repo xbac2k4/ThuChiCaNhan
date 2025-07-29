@@ -5,11 +5,11 @@ import Block from './Block';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import ModalCpn from './ModalCpn';
 import Text from './Text';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import moment from 'moment';
 import Section from './Section';
-import Icons from '../../common/icons';
-import IconMT from '../../components/icon/IconMT';
+import Icons from 'common/icons';
+import IconMT from 'components/icon/IconMT';
 
 LocaleConfig.locales.fr = {
   monthNames: [

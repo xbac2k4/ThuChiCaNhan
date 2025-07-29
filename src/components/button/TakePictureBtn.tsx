@@ -1,9 +1,9 @@
-import Icons from '../../common/icons';
-import Block from '../../components/base/Block';
-import Text from '../../components/base/Text';
-import IconMT from '../../components/icon/IconMT';
-import ModalTakePicture from '../../components/modal/ModalTakePicture';
-import { colors } from '../../constants/theme';
+import Icons from 'common/icons';
+import Block from 'components/base/Block';
+import Text from 'components/base/Text';
+import IconMT from 'components/icon/IconMT';
+import ModalTakePicture from 'components/modal/ModalTakePicture';
+import { colors } from 'constants/theme';
 import { ReactNode, memo, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { StyleSheet } from 'react-native';

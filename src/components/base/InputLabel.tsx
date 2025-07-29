@@ -1,12 +1,12 @@
 import Block from './Block';
 import Spacer from './Spacer';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import { memo, useState } from 'react';
 import { TextField } from 'react-native-ui-lib';
 import isEqual from 'react-fast-compare';
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import Icons from '../../common/icons';
-import IconMT from '../../components/icon/IconMT';
+import Icons from 'common/icons';
+import IconMT from 'components/icon/IconMT';
 import Text from './Text';
 
 interface TextFieldBaseProps {

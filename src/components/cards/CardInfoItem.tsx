@@ -1,7 +1,7 @@
-import Block from '../../components/base/Block';
-import Text from '../../components/base/Text';
-import IconMT from '../../components/icon/IconMT';
-import {colors, dimensions, fontSizes} from '../../constants/theme';
+import Block from 'components/base/Block';
+import Text from 'components/base/Text';
+import IconMT from 'components/icon/IconMT';
+import {colors, dimensions, fontSizes} from 'constants/theme';
 import React, {ReactNode, memo} from 'react';
 import isEqual from 'react-fast-compare';
 import {StyleSheet, TextStyle} from 'react-native';

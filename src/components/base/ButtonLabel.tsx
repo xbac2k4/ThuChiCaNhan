@@ -1,10 +1,10 @@
 import { memo, ReactNode } from 'react';
 import { TextStyle } from 'react-native';
 import Block from './Block';
-import { colors } from '../../constants/theme';
+import { colors } from 'constants/theme';
 import Text from './Text';
 import isEqual from 'react-fast-compare';
-import IconMT from '../../components/icon/IconMT';
+import IconMT from 'components/icon/IconMT';
 
 interface BtnLabelType {
   onPress: () => void;

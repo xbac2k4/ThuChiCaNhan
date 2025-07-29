@@ -1,7 +1,7 @@
 import isEqual from 'react-fast-compare';
 import { Text, TextStyle, ViewStyle } from 'react-native';
 
-import { stylesCustom } from '../../constants/styleCustom';
+import { stylesCustom } from 'constants/styleCustom';
 import { ReactNode, memo } from 'react';
 import Block from './Block';
 

@@ -1,7 +1,7 @@
 import React, { memo, ReactNode } from 'react';
 import { Text, TextStyle, TextProps } from 'react-native';
-import { stylesCustom } from '../../constants/styleCustom';
-import { dimensions, fontSizes } from '../../constants/theme';
+import { stylesCustom } from 'constants/styleCustom';
+import { dimensions, fontSizes } from 'constants/theme';
 
 interface TextViewProps extends TextProps {
   children: ReactNode;

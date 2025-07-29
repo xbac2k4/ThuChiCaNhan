@@ -1,7 +1,7 @@
-import Block from '../../components/base/Block';
-import Button from '../../components/base/Button';
-import {stylesCustom} from '../../constants/styleCustom';
-import {colors} from '../../constants/theme';
+import Block from 'components/base/Block';
+import Button from 'components/base/Button';
+import {stylesCustom} from 'constants/styleCustom';
+import {colors} from 'constants/theme';
 import React, {memo, useEffect, useState} from 'react';
 import isEqual from 'react-fast-compare';
 import {Keyboard, ViewStyle} from 'react-native';

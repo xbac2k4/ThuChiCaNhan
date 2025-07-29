@@ -1,11 +1,11 @@
 import { ReactNode, memo, useState } from 'react';
 import Block from './Block';
-import { colors, fontSizes } from '../../constants/theme';
-import Icons from '../../common/icons';
+import { colors, fontSizes } from 'constants/theme';
+import Icons from 'common/icons';
 import Text from './Text';
 import isEqual from 'react-fast-compare';
 import { StyleSheet } from 'react-native';
-import IconMT from '../../components/icon/IconMT';
+import IconMT from 'components/icon/IconMT';
 
 type ShowCard = {
   title: string;

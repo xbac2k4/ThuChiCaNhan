@@ -2,7 +2,7 @@ import { ReactNode, memo } from 'react';
 import Block from './Block';
 import Text from './Text';
 import isEqual from 'react-fast-compare';
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import { StyleSheet } from 'react-native';
 
 type TitleType = {

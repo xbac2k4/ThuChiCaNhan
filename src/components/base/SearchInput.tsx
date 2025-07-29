@@ -1,9 +1,9 @@
-import { colors, fontSizes } from '../../constants/theme';
+import { colors, fontSizes } from 'constants/theme';
 import Block from './Block';
-import Icons from '../../common/icons';
+import Icons from 'common/icons';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import IconMT from '../../components/icon/IconMT';
+import IconMT from 'components/icon/IconMT';
 import TextInput from './TextInput';
 
 type SearchInputType = {

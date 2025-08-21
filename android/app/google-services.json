@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "648879855037",
+    "project_id": "personal-project-da592",
+    "storage_bucket": "personal-project-da592.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648879855037:android:39c77b616a67584cd42ed4",
+        "android_client_info": {
+          "package_name": "com.quanlythuchicanhan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648879855037-ffo719hvgjp4n7933873ap2hoco900t9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quanlythuchicanhan",
+            "certificate_hash": "aaf815569ec56f3600b84cb1997e3805bb0bad45"
+          }
+        },
+        {
+          "client_id": "648879855037-q63il498eetrfq4r7g8ob4h9vm9ba0d1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZa5UGgb2lEKqq7sBvDeX13zIk2yysjJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648879855037-q63il498eetrfq4r7g8ob4h9vm9ba0d1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -84,6 +84,10 @@ const fontSizes = {
   FONT_20: moderateScale(20),
   FONT_22: moderateScale(22),
   FONT_24: moderateScale(24),
+  FONT_26: moderateScale(26),
+  FONT_28: moderateScale(28),
+  FONT_30: moderateScale(30),
+  FONT_32: moderateScale(32),
   TITLE: moderateScale(20),
   SUBTITLE: moderateScale(18),
   BASE: moderateScale(16),
@@ -97,6 +101,9 @@ const fontSizes = {
 };
 
 const colors = {
+  BASE: '#71C4FF',
+  BG: '#71C4FF',
+  BG1: '#0966A7',
   //Primary color
   WAITING: '#CD9B1D',
   RED2: '#EE0000',
@@ -145,7 +152,8 @@ const colors = {
   WHITE: '#ffffff',
 
   WHITE_BLUR: '#fff6',
-  BLACK: '#323643',
+  BLACK: '#000000',
+  BLACK1: '#323643',
   TRANSPARENT: 'transparent',
 
   WORD: '#2699FB',
@@ -165,6 +173,10 @@ const colors = {
   BG_GREEN: '#b3ffc7',
   BG_DRAFT: '#fcd0a3',
   BG_REJECT: '#fe9d97',
+
+  BG_GREEN1: '#33FF00',
+  BG_GREEN2: '#27C200',
+  BG_GREEN3: '#269900',
 };
 
 export {

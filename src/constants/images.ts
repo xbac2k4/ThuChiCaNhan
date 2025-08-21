@@ -1,34 +1,24 @@
 import {Assets} from 'react-native-ui-lib';
 
 Assets.loadAssetsGroup('icons', {
-  alert: require('assets/images/logo-removebg.png'),
-  hide: require('assets/icons/hide.png'),
-  show: require('assets/icons/view.png'),
+  alert: require('assets/images/logo.png'),
+  // hide: require('assets/icons/hide.png'),
+  // show: require('assets/icons/view.png'),
 });
 
 const images = {
   logo: require('assets/images/logo.png'),
-  logoRemovebg: require('assets/images/logo-removebg.png'),
-  userDefault: require('assets/images/user_default.jpg'),
+  bg_login: require('assets/images/bg_login.png'),
+  img_1: require('assets/images/img_1.png'),
+  img_2: require('assets/images/img_2.png'),
+  userDefault: require('assets/images/user.jpg'),
   camera: require('assets/images/camera.png'),
-  empty: require('assets/images/empty.png'),
-  test: require('assets/images/suni2.png'),
-  car_repair_wt: require('assets/images/car-repair-white.png'),
-  car_damage: require('assets/images/car.png'),
-  mattech_logo: require('assets/images/Logo_mattech.svg'),
-  MERP: require('assets/images/MERP-hori.png'),
   BILL: require('assets/images/bill.png'),
   chervon_down: require('assets/images/down.png'),
   placehohder: require('assets/images/placeholder.jpg'),
   icon_calendar: require('assets/images/calendar.png'),
-  user: require('assets/images/user.png'),
-  female_user: require('assets/images/female_user.png'),
-  truck_background: require('assets/images/truck-background.jpeg'),
-  environment_background: require('assets/images/environment_background.jpg'),
-  truck: require('assets/images/truck.png'),
+  user: require('assets/images/user.jpg'),
   record: require('assets/images/record.png'),
-  tree_background: require('assets/images/tree_background.jpg'),
-  succulent: require('assets/images/succulent.png'),
 };
 
 export const icons = {

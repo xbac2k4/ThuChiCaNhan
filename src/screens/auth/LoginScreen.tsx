@@ -1,6 +1,5 @@
 import Block from '../../components/base/Block';
-import { Modal } from 'react-native-ui-lib';
-import { Alert, Dimensions, ScrollView, StyleSheet } from 'react-native';
+import { Dimensions, ImageBackground, ScrollView, StyleSheet } from 'react-native';
 import { scale, verticalScale } from '../../utils/Responsive';
 import { colors, dimensions, fontSizes } from '../../constants/theme';
 import Spacer from '../../components/base/Spacer';
@@ -12,29 +11,19 @@ import Icons from '../../common/icons';
 import { COMMON_PATHS } from '../../navigation/Path';
 import InputLabel from '../../components/base/InputLabel';
 import { Keyboard } from 'react-native';
-import { LoginUser } from '../../services';
-import { storeT } from '../../utils/Http';
 import IconMT from '../../components/icon/IconMT';
-import CBCache from '../../utils/CBCache';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Platform } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import Button from '../../components/base/Button';
 import React from 'react';
-import logger from '../../helper/logger';
+import images from 'constants/images';
+import PhoneInput from 'components/base/PhoneInput';
 
 const LoginScreen: React.FC<NavigationScreenProps> = memo(({ navigation }) => {
   const [visible, setVisible] = useState<boolean>(false);
-  const [userLogin, setUserLogin] = useState<UserLogin>({
-    username: '',
-    password: '',
-    device_id: '',
-  });
   const [isName, setIsName] = useState<boolean>(false);
   const [isPass, setIsPass] = useState<boolean>(false);
   const [ENDPOINT, setENPOINT] = useState<string | null>('');
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
-  const [modal, setModal] = useState<boolean>(false);
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -53,150 +42,43 @@ const LoginScreen: React.FC<NavigationScreenProps> = memo(({ navigation }) => {
     };
   }, []);
 
-  const getEndpoint = async () => {
-    try {
-      const url = await storeT.getURL();
-      setENPOINT(url);
-    } catch (error) { }
-  };
-
-  const setEndPoint = async (url: string) => {
-    try {
-      await storeT.setURL(url);
-    } catch (error) { }
-  };
-
-  useEffect(() => {
-    getEndpoint();
-  }, [setEndPoint]);
-
-  useEffect(() => {
-    const isLogin = async () => {
-      const LoginUser = await storeT.getUsername();
-      const PasswordUser = await storeT.getPassWord();
-      const data: UserLogin = {
-        password: PasswordUser || '',
-        username: LoginUser || '',
-        device_id: CBCache.uniqueId,
-      };
-      setUserLogin(data);
-    };
-    isLogin();
-  }, []);
-
-  const handleLogin = async (data: UserLogin) => {
-    Keyboard.dismiss();
-    try {
-      if (userLogin.username == '') {
-        setIsName(true);
-        return;
-      }
-      if (userLogin.password == '') {
-        setIsPass(true);
-        return;
-      }
-      setIsName(false);
-      setIsPass(false);
-      await LoginUser(data);
-    } catch (error) {
-      logger.error(error);
-    }
-  };
-
-  const onAlertWhenLogin = (data: UserLogin) => {
-    // const isEndPoint = Urls?.find((url: any) => url?.url == ENDPOINT);
-    // if (isEndPoint?.url != '') {
-    //   Alert.alert(
-    //     'Cảnh báo',
-    //     `Bạn đang đăng nhập vào môi trường thử nghiệm ${isEndPoint?.name ?? ''
-    //     }, xác nhận tiếp tục?`,
-    //     [
-    //       {
-    //         text: 'Huỷ',
-    //         onPress: () => {
-    //           return;
-    //         },
-    //         style: 'cancel',
-    //       },
-    //       {
-    //         text: 'Tiếp tục',
-    //         onPress: () => {
-    //           handleLogin(data);
-    //         },
-    //       },
-    //     ],
-    //     { cancelable: true },
-    //   );
-    // } else {
-    //   handleLogin(data);
-    // }
-    handleLogin(data);
-  };
-
-  const onChangeValue = (name: keyof UserLogin, value: String) => {
-    const data = { ...userLogin, [name]: value };
-    setUserLogin(data);
-  };
-
   return (
-    <LinearGradient
-      colors={['#4c669f', colors.SECONDARY, colors.PRIMARY]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={{ flex: 1 }}>
+    <ImageBackground
+      source={images.bg_login}
+      style={{ flex: 1 }}
+      resizeMode="contain">
       <ScrollView
         style={{
           padding: 10,
         }}
         keyboardShouldPersistTaps={'handled'}>
         <Block flex={1}>
-          <Block p={dimensions.XL} flex={1}>
-            <Block middle style={{ width: '100%', marginBottom: 20 }}>
-              <Spacer height={20} />
-              <Block center middle flex={1}>
-                {/* <Image width={60} height={25} source={images.MERP} /> */}
-                <Text
-                  style={{
-                    backgroundColor: colors.WHITE,
-                    fontWeight: 'bold',
-                    fontSize: fontSizes.FONT_24,
-                    paddingHorizontal: 5,
-                    color: colors.SECONDARY,
-                  }}>
-                  TT EBS
-                </Text>
-                <Spacer height={20} />
-                <Text
-                  style={{
-                    color: colors.GRAY4,
-                    fontSize: 30,
-                    fontWeight: 'bold',
-                  }}>
-                  THUẬN THÀNH
-                </Text>
-
-                <Spacer height={20} />
+          <Block p={10} flex={1}>
+            <Block style={{ width: '100%', marginBottom: 20 }}>
+              <Block center flex={1}>
+                <Block pb={10}>
+                  <Text style={{ color: colors.BLACK, fontSize: fontSizes.FONT_28, fontWeight: 'bold' }}>ĐĂNG NHẬP</Text>
+                </Block>
+                <Block pb={30}>
+                  <Text style={{ color: colors.GRAY, fontSize: fontSizes.FONT_16 }}>Đăng nhập với số điện thoại của bạn</Text>
+                </Block>
               </Block>
 
               <Spacer width={0} height={40} />
               <Block style={styles.labelText}>
-                <InputLabel
-                  onChangeValue={value => onChangeValue('username', value)}
-                  textValue={userLogin.username}
-                  textPlaceHolder={'Tên đăng nhập'}
-                  title={'Tên đăng nhập'}
-                  titleStyle={{ color: colors.WHITE }}
+                <PhoneInput
+                  onChangeValue={value => {}}
+                  value={''}
                   error={{
                     title: 'Tên đăng nhập không để trống',
                     isError: isName,
-                  }}
-                />
+                  }} />
               </Block>
               <Spacer width={0} height={5} />
               <Block style={styles.labelText}>
                 <InputLabel
-                  onChangeValue={value => onChangeValue('password', value)}
-                  textValue={userLogin.password}
+                  onChangeValue={value => {}}
+                  textValue={''}
                   textPlaceHolder={'Mật khẩu'}
                   title={'Mật khẩu'}
                   titleStyle={{ color: colors.WHITE }}
@@ -211,7 +93,7 @@ const LoginScreen: React.FC<NavigationScreenProps> = memo(({ navigation }) => {
                 linearColors={[colors.PRIMARY, colors.SECONDARY]}
                 styleBtn={styles.loginBtn}
                 textStyle={{ color: colors.WHITE, textTransform: 'uppercase' }}
-                onPress={() => onAlertWhenLogin(userLogin)}
+                onPress={() => {}}
                 name={'Đăng nhập'}
               />
             </Block>
@@ -251,8 +133,8 @@ const LoginScreen: React.FC<NavigationScreenProps> = memo(({ navigation }) => {
                 fontWeight: '500',
                 color: colors.WHITE,
               }}>
-              <Text style={{ color: colors.GRAY2 }}>Copyright</Text> THUẬN THÀNH
-              EBS
+              <Text style={{ color: colors.GRAY2 }}>Copyright</Text> 
+              Xuân Bắc
             </Text>
           </Block>
         </Block>
@@ -271,7 +153,7 @@ const LoginScreen: React.FC<NavigationScreenProps> = memo(({ navigation }) => {
       ) : (
         <></>
       )}
-    </LinearGradient>
+    </ImageBackground>
   );
 });
 
@@ -304,7 +186,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   labelText: {
-    width: '90%',
+    width: '100%',
   },
   t1: {
     color: '#fff',

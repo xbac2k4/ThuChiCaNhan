@@ -2,7 +2,6 @@ import { Button, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Animate
 import React, { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { deleteAllQuery, insertData, insertQuery, selectQuery } from '../../database/sqlite';
 import { NavigationScreenProps } from '../../common/type';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
@@ -10,6 +9,7 @@ import Block from '../../components/base/Block';
 import IconMT from '../../components/icon/IconMT';
 import { stylesCustom } from '../../constants/styleCustom';
 import Skeleton from '../../components/base/Skeleton';
+import FloatBtnAdd from './components/FloatBtnAdd';
 
 const users = [
     {
@@ -62,7 +62,7 @@ const HomeScreen: React.FC<NavigationScreenProps> = ({
         setIsOpen(!isOpen);
     };
 
-    const renderItem = ({ item }) => {
+    const renderItem = ({ item }: any) => {
         return (
             <View style={{ padding: 10, borderBottomWidth: 1 }}>
                 <Text>ID: {item.user_id}</Text>
@@ -83,52 +83,12 @@ const HomeScreen: React.FC<NavigationScreenProps> = ({
                     keyExtractor={item => item.user_id.toString()}
                 />
             </Skeleton>
-            <Block style={[styles.btnAdd]}>
-                <Animated.View style={[styles.fab, styles.subFab, { transform: [{ translateY: anim1.interpolate({ inputRange: [0, 1], outputRange: [0, -60] }) }] }]}>
-                    <TouchableOpacity onPress={() => console.log("Thêm +")}>
-                        <IconMT name="plus" size={24} color='white' />
-                    </TouchableOpacity>
-                </Animated.View>
-                <Animated.View style={[styles.fab, styles.subFab, { transform: [{ translateY: anim2.interpolate({ inputRange: [0, 1], outputRange: [0, -120] }) }] }]}>
-                    <TouchableOpacity onPress={() => console.log("Thêm -")}>
-                        <IconMT name="minus" size={24} color='white' />
-                    </TouchableOpacity>
-                </Animated.View>
-                <TouchableOpacity style={styles.fab} onPress={toggleMenu}>
-                    <IconMT name={isOpen ? "close" : "plus"} size={24} color='white' />
-                </TouchableOpacity>
+            <Block m={20}>
+                <FloatBtnAdd />
             </Block>
         </Block>
     )
 }
 export default memo(HomeScreen, isEqual);
 
-const styles = StyleSheet.create({
-    text: {
-        fontSize: 20,
-        color: 'black',
-    },
-    btnAdd: {
-        position: 'absolute',
-        bottom: 40,
-        right: 40,
-        padding: 10,
-    },
-    fab: {
-        backgroundColor: '#6200ea',
-        width: 48,
-        height: 48,
-        borderRadius: 28,
-        justifyContent: 'center',
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
-        elevation: 5,
-        position: 'absolute',
-    },
-    subFab: {
-        backgroundColor: '#03dac6',
-    }
-})
+const styles = StyleSheet.create({})

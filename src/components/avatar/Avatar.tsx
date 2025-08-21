@@ -32,7 +32,7 @@ const Avatar: React.FC<Propstype> = memo(
         if (profile?.user?.employee?.gender) {
           const isGender = profile.user.employee.gender?.includes('1');
           if (!isGender) {
-            setImage(images.female_user);
+            setImage(images.user);
           }
         }
       }

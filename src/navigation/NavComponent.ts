@@ -1,9 +1,11 @@
+import SelectLoginScreen from 'screens/auth/SelectLoginScreen';
 import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 import SplashScreen from '../screens/auth/SplashScreen';
 // import ChangePassword from '';
 // import ProfileScreen from '';
 import DrawBar from './DrawBar';
+import BottomBar from './BottomBar';
 
 const COMMON_COMPONENTS = {
   SPLASH: {
@@ -16,6 +18,12 @@ const COMMON_COMPONENTS = {
     component: RegisterScreen,
     options: {
       headerTitle: 'Đăng ký tài khoản',
+    },
+  },
+  SELECT_LOGIN: {
+    component: SelectLoginScreen,
+    options: {
+      headerShown: false,
     },
   },
   LOGIN: {
@@ -37,7 +45,7 @@ const COMMON_COMPONENTS = {
   //   },
   // },
   MAIN: {
-    component: DrawBar,
+    component: BottomBar,
     options: {
       headerShown: false,
     },

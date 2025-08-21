@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from "axios";
+import { ViewStyle } from "react-native/types";
 
 export interface NavigationScreenProps {
   navigation?: any;
@@ -60,6 +61,7 @@ export type BtnType = {
   bgColor?: string;
   iconName?: string;
   iconColor?: string;
+  containerStyle?: ViewStyle;
 };
 
 export type FieldInfoType = {
@@ -68,9 +70,9 @@ export type FieldInfoType = {
   isShow: boolean;
 };
 
+type LoginMethod = "sms" | "google" | "facebook";
+
 export type UserLogin = {
-  username: string;
-  password: string;
-  device_token?: string;
-  device_id?: string;
+  method: LoginMethod;
+  otpCode?: string;
 };

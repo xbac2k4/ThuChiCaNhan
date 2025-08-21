@@ -3,7 +3,7 @@ import RNFetchBlob from 'rn-fetch-blob';
 
 const {dirs} = RNFetchBlob.fs;
 
-const code = 18;
+const code = 1;
 
 export const VERSION_CODE = Platform.select({
   ios: code,
@@ -11,8 +11,8 @@ export const VERSION_CODE = Platform.select({
 });
 
 export const VERSION_NAME = Platform.select({
-  ios: `1.1.${code}`,
-  android: `1.1.${code}`,
+  ios: `0.0.${code}`,
+  android: `0.0.${code}`,
 });
 
 export const dirToSave =

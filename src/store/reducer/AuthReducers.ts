@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store/store';
 import {
-  getAvatarThunk,
   getProfile,
 } from '../../store/thunk/AuthThunk';
 
@@ -31,9 +30,6 @@ const authSlice = createSlice({
     builder
       .addCase(getProfile.fulfilled, (state, action) => {
         state.profile = action.payload;
-      })
-      .addCase(getAvatarThunk.fulfilled, (state, action) => {
-        state.avatar = action.payload;
       })
   },
 });

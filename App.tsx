@@ -5,7 +5,7 @@
  * @format
  */
 import 'react-native-gesture-handler';
-import React, {useEffect, useRef} from 'react';
+import React, { JSX, useEffect, useRef } from 'react';
 import {
   AppState,
   KeyboardAvoidingView,
@@ -13,34 +13,28 @@ import {
   StatusBar,
   StyleSheet,
 } from 'react-native';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import AppNavigation from './src/navigation/AppNavigation';
-import {store} from './src/store/store';
-import {Provider} from 'react-redux';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import { store } from './src/store/store';
+import { Provider } from 'react-redux';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import FlashMessage, {
   hideMessage,
   showMessage,
 } from 'react-native-flash-message';
 import Loading from './src/components/loading/Loading';
 import NetInfo from '@react-native-community/netinfo';
-import {LogLevel, OneSignal} from 'react-native-onesignal';
 import 'react-native-reanimated';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+  webClientId: '648879855037-q63il498eetrfq4r7g8ob4h9vm9ba0d1.apps.googleusercontent.com',
+});
 
 function App(): JSX.Element {
   const appState = useRef(AppState.currentState);
-  
+
   useEffect(() => {
-    OneSignal.Debug.setLogLevel(LogLevel.Verbose);
-    OneSignal.initialize('f83a0605-692f-421f-81a3-22c784da0ed8');
-    OneSignal.Notifications.requestPermission(true);
-
-    OneSignal.Notifications.addEventListener('foregroundWillDisplay', event => {
-      event.notification.display();
-      console.log('---------- Có thông báo -----------');
-    });
-    OneSignal.Notifications.clearAll;
-
     const unsubscribeNetwork = NetInfo.addEventListener(
       handleConnectivityChange,
     );
@@ -58,7 +52,7 @@ function App(): JSX.Element {
 
   const handleConnectivityChange = (state: any) => {
     if (appState.current === 'active') {
-      const {isConnected} = state;
+      const { isConnected } = state;
       if (!isConnected) {
         showMessage({
           message: 'Không có internet',
@@ -85,8 +79,8 @@ function App(): JSX.Element {
 const ProviderApp = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{flex: 1}}>
-        <GestureHandlerRootView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
           <React.Fragment>
             <StatusBar
               barStyle={Platform.select({
@@ -97,7 +91,7 @@ const ProviderApp = () => {
             />
             {Platform.select({
               ios: (
-                <KeyboardAvoidingView style={{flex: 1}} behavior="padding">
+                <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
                   <AppNavigation />
                 </KeyboardAvoidingView>
               ),

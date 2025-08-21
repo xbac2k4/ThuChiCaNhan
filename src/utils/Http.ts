@@ -13,84 +13,38 @@ class Store {
   __token = '';
   __refresh_token = '';
   __username = '';
-  __URL = '';
-  __password = '';
-  __app_type = '';
 
   //Token
-  async removeAppCode() {
-    this.__token = '';
-    await AsyncStorage.removeItem(APP_CODE);
-  }
-
   async getToken() {
     return (
-      this.__token || (await AsyncStorage.getItem('thuan_thanh_app_token'))
+      this.__token || (await AsyncStorage.getItem('app_token'))
     );
-  }
-
-  async getAppType() {
-    return (
-      this.__app_type || (await AsyncStorage.getItem('thuan_thanh_app_type'))
-    );
-  }
-
-  async getPassWord() {
-    return (
-      this.__password || (await AsyncStorage.getItem('thuan_thanh_app_pass'))
-    );
-  }
-
-  async setPassWord(pass: string) {
-    this.__password = pass;
-    await AsyncStorage.setItem('thuan_thanh_app_pass', pass);
-  }
-
-  async getURL() {
-    return this.__URL || (await AsyncStorage.getItem('thuan_thanh_app_Url'));
-  }
-
-  async setURL(url: string) {
-    this.__URL = url;
-    await AsyncStorage.setItem('thuan_thanh_app_Url', url);
   }
 
   async setToken(token: string) {
     this.__token = token;
-    await AsyncStorage.setItem('thuan_thanh_app_token', token);
+    await AsyncStorage.setItem('app_token', token);
   }
 
   async removeToken() {
     this.__token = '';
-    await AsyncStorage.removeItem('thuan_thanh_app_token');
+    await AsyncStorage.removeItem('app_token');
   }
-
-  async setAppType(appType: string) {
-    this.__app_type = appType;
-    await AsyncStorage.setItem('thuan_thanh_app_type', appType);
-  }
-
-  //Username
-  async getUsername() {
+  // User
+  async getUser() {
     return (
-      this.__username ||
-      (await AsyncStorage.getItem('thuan_thanh_app_username'))
+      this.__username || (await AsyncStorage.getItem('app_username'))
     );
   }
 
-  async setUsername(username: string) {
+  async setUser(username: string) {
     this.__username = username;
-    await AsyncStorage.setItem('thuan_thanh_app_username', username);
+    await AsyncStorage.setItem('app_username', username);
   }
 
-  async removeUsername() {
+  async removeUser() {
     this.__username = '';
-    await AsyncStorage.removeItem('thuan_thanh_app_username');
-  }
-
-  async removeAppType() {
-    this.__app_type = '';
-    await AsyncStorage.removeItem('thuan_thanh_app_type');
+    await AsyncStorage.removeItem('app_username');
   }
 }
 

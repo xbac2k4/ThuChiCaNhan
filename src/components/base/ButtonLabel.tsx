@@ -9,24 +9,32 @@ import IconMT from 'components/icon/IconMT';
 interface BtnLabelType {
   onPress: () => void;
   title: string;
-  icon: string;
+  icon?: string;
+  iconColor?: string;
+  bg?: string;
+  borderColor?: string
   textStyle?: TextStyle | TextStyle[];
   children?: ReactNode;
 }
 
 const ButtonLabel: React.FC<BtnLabelType> = memo(
-  ({ onPress, title, icon, textStyle, children }) => {
+  ({ onPress, title, icon, textStyle, children, iconColor, bg, borderColor }) => {
     return (
-      <Block m={5}>
+      <Block mv={5}>
         <Block
           row
+          borderAll
+          borderColor={borderColor || colors.TRANSPARENT}
+          center
+          borderRadius={15}
           p={10}
           middle
-          shadow
-          style={{ backgroundColor: '#fff' }}
+          style={{ backgroundColor: bg || colors.BASE }}
           onPress={onPress}>
-          <IconMT name={icon} size={30} color={colors.PRIMARY} />
-          <Block pl={40}>
+          {
+            icon && <IconMT name={icon} size={30} color={iconColor || colors.WHITE} />
+          }
+          <Block pl={icon ? 10 : 0}>
             <Text style={textStyle}>{title}</Text>
           </Block>
         </Block>

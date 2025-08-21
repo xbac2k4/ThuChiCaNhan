@@ -1,8 +1,10 @@
+import Wallet from "screens/wallets/WalletScreen";
 import Icons from "../common/icons";
 import { TabScreens } from "../common/type";
 import Home from "../screens/home/HomeScreen";
 import Statistical from "../screens/statistical/StatisticalScreen";
 import Transaction from "../screens/transaction/TransactionScreen";
+import ProfileScreen from "screens/profiles/ProfileScreen";
 
 export const Tab: TabScreens[] = [
   {
@@ -10,12 +12,12 @@ export const Tab: TabScreens[] = [
     key: 'home',
     name: 'home-tab',
     options: {
-      tabBarLabel: 'Trang chủ',
-      title: 'Trang chủ',
+      tabBarLabel: 'Tổng quan',
+      title: 'Tổng quan',
       headerShown: true,
       tabBarIcon: {
         isNotification: false,
-        icon: Icons.home,
+        icon: Icons.over_view,
       },
     },
   },
@@ -29,7 +31,7 @@ export const Tab: TabScreens[] = [
       headerShown: true,
       tabBarIcon: {
         isNotification: false,
-        icon: Icons.message_alert,
+        icon: Icons.chart_bar,
       },
     },
   },
@@ -43,7 +45,35 @@ export const Tab: TabScreens[] = [
       headerShown: true,
       tabBarIcon: {
         isNotification: false,
-        icon: Icons.message_alert,
+        icon: Icons.list_bulleted,
+      },
+    },
+  },
+  {
+    component: Wallet,
+    key: 'wallet',
+    name: 'wallet-tab',
+    options: {
+      tabBarLabel: 'Ví',
+      title: 'Ví',
+      headerShown: true,
+      tabBarIcon: {
+        isNotification: false,
+        icon: Icons.wallet,
+      },
+    },
+  },
+  {
+    component: ProfileScreen,
+    key: 'profile',
+    name: 'profile-tab',
+    options: {
+      tabBarLabel: 'Cá nhân',
+      title: 'Cá nhân',
+      headerShown: true,
+      tabBarIcon: {
+        isNotification: false,
+        icon: Icons.profile,
       },
     },
   },

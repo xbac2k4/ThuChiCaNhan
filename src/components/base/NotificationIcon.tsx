@@ -14,12 +14,7 @@ interface NotificationType {
 }
 
 const NotificationIcon = ({ isforcus, color, size }: NotificationType) => {
-  const { notification } = useSelector((state: RootState) => state.AuthReducer);
-  const unRead =
-    notification?.length > 0
-      ? notification.filter(notification => notification.status == '1-Chưa đọc')
-        ?.length
-      : 0;
+  const unRead = 0;
 
   return (
     <View>

@@ -20,7 +20,7 @@ import logger from 'helper/logger';
 import { RefreshControl } from 'react-native-gesture-handler';
 import ModalBottom from '@components/modal/ModalBottom'
 
-const WalletScreen: React.FC<NavigationScreenProps> = ({
+const ComeOutScreen: React.FC<NavigationScreenProps> = ({
     navigation
 }) => {
     const [data, setData] = useState<any>([]);
@@ -114,7 +114,7 @@ const WalletScreen: React.FC<NavigationScreenProps> = ({
 
     return (
         <Block flex={1}>
-            <HeaderBase title='Ví' />
+            <HeaderBase title='Tiền chi' />
             <Skeleton isLoading={false} showContent>
                 <Block flex={1}>
                     <Block flex={1}>
@@ -131,7 +131,7 @@ const WalletScreen: React.FC<NavigationScreenProps> = ({
                     <Block p={10}>
                         <Button
                             linearColors={[bgColors.BG_BLUE, bgColors.BG_BLUE1]}
-                            name='THÊM'
+                            name='TẠO'
                             onPress={() => setIsShowAdd(true)} />
                     </Block>
                 </Block>
@@ -189,6 +189,6 @@ const WalletScreen: React.FC<NavigationScreenProps> = ({
         </Block>
     )
 }
-export default memo(WalletScreen, isEqual);
+export default memo(ComeOutScreen, isEqual);
 
 const styles = StyleSheet.create({})

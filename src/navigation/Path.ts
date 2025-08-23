@@ -3,7 +3,8 @@ export const COMMON_PATHS = {
   LOGIN: 'login',
   SELECT_LOGIN: 'select_login',
   REGISTER: 'register',
-  // CHANGEPASS: 'change_pass',
-  // PROFILE: 'profile',
   MAIN: 'main',
+  WALLET_SCREEN: 'wallet-screen',
+  COMEIN_SCREEN: 'comein-screen',
+  COMEOUT_SCREEN: 'comeout-screen',
 };

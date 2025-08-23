@@ -2,15 +2,20 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Button from 'components/base/Button';
 import { LogoutUser } from 'services';
+import Block from 'components/base/Block';
+import { navigate } from 'utils/NavigationUtils';
+import { COMMON_PATHS } from 'navigation/Path';
 
 const ProfileScreen = () => {
     return (
-        <View>
-            <Text>ProfileScreen</Text>
+        <Block flex={1}>
+            <Button name='Ví' onPress={() => {
+                navigate(COMMON_PATHS.WALLET_SCREEN);
+            }}/>
             <Button name="Đăng xuất" onPress={async () => {
                 await LogoutUser();
             }} />
-        </View>
+        </Block>
     )
 }
 

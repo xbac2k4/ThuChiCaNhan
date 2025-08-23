@@ -2,7 +2,7 @@ import Block from 'components/base/Block';
 import InputLabel from 'components/base/InputLabel';
 import Spacer from 'components/base/Spacer';
 import Text from 'components/base/Text';
-import { colors, fontSizes } from 'constants/theme';
+import { bgColors, colors, fontSizes } from 'constants/theme';
 import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { Modal } from 'react-native-ui-lib';
 import Icons from 'common/icons';
@@ -127,15 +127,15 @@ type MyModalType = {
   isShow: boolean;
   close: () => void;
   title: string;
-  des: string;
+  des?: string;
   onPress: () => void;
 };
 
 type AlertModalType = MyModalType & {
-  isAlert?: boolean;
   alertColor?: string;
   children?: ReactNode;
   textActionButton?: string;
+  textCloseButton?: string;
   customBtn?: ReactNode;
 };
 export const AlertModal = memo(
@@ -146,9 +146,9 @@ export const AlertModal = memo(
     des,
     onPress,
     alertColor,
-    isAlert,
     children,
     textActionButton,
+    textCloseButton,
     customBtn,
   }: AlertModalType) => {
     return (
@@ -170,30 +170,27 @@ export const AlertModal = memo(
               <Block flex={1}>
                 <Block
                   borderBottomWidth={1}
-                  p={20}
+                  ph={10}
+                  pv={15}
                   borderTLRadius={10}
                   borderTRRadius={10}
                   row
                   justifyBetween
                   style={{
-                    backgroundColor: isAlert
+                    backgroundColor: alertColor
                       ? alertColor
-                        ? alertColor
-                        : colors.ERROR
-                      : colors.SECONDARY,
+                      : bgColors.BLUE_BASE,
                   }}>
-                  <Block>
+                  <Block flex={1} center>
                     <Text
                       style={{
                         color: colors.WHITE,
                         fontSize: fontSizes.FONT_20,
                         fontWeight: '600',
+                        textAlign: 'center'
                       }}>
                       {title}
                     </Text>
-                  </Block>
-                  <Block onPress={close}>
-                    <IconMT name={Icons.close} size={25} color={colors.WHITE} />
                   </Block>
                 </Block>
                 <Block
@@ -201,31 +198,33 @@ export const AlertModal = memo(
                   borderBLRadius={10}
                   borderBRRadius={10}
                   style={{ backgroundColor: colors.WHITE }}>
-                  <Block pv={10} ph={10}>
-                    <Text style={{ fontSize: fontSizes.FONT_18 }}>{des}</Text>
-                  </Block>
+                  {des &&
+                    <Block pv={10} ph={10}>
+                      <Text style={{ fontSize: fontSizes.FONT_18 }}>{des}</Text>
+                    </Block>
+                  }
                   {children ? children : null}
                   {customBtn ? (
                     customBtn
                   ) : (
-                    <Block row pv={10}>
+                    <Block row pv={5} style={{ gap: 10 }}>
                       <Button
                         onPress={close}
-                        name="Đóng"
+                        name={textCloseButton ? textCloseButton : 'Đóng'}
                         styleBtn={{
+                          flex: 1,
                           borderRadius: 5,
                           backgroundColor: colors?.WHITE,
                         }}
                       />
-                      <Block flex={1} />
-
                       <Button
                         onPress={onPress}
                         name={textActionButton ? textActionButton : 'Ghi'}
                         colorText={colors?.WHITE}
                         styleBtn={{
+                          flex: 1,
                           borderRadius: 5,
-                          backgroundColor: colors.SECONDARY,
+                          backgroundColor: alertColor ? alertColor : bgColors.BLUE_BASE,
                         }}
                       />
                     </Block>

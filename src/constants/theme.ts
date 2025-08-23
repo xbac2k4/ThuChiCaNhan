@@ -177,11 +177,21 @@ const colors = {
   BG_GREEN1: '#33FF00',
   BG_GREEN2: '#27C200',
   BG_GREEN3: '#269900',
+  //
+  BORDER_COLOR: '#E1E5E9',
 };
+
+const bgColors = {
+  BG_WHITE: '#FEFEFE',
+  BLUE_BASE: '#42A6ED',
+  BG_BLUE: '#71C4FF',
+  BG_BLUE1: '#0966A7',
+}
 
 export {
   dimensions,
   fontSizes,
   colors,
   fontFamillies,
+  bgColors,
 };

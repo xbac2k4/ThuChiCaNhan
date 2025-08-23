@@ -7,10 +7,8 @@ import isEqual from 'react-fast-compare'
 const TransactionScreen: React.FC<NavigationScreenProps> = ({
     navigation
 }) => {
-    const { t } = useTranslation('transactions')
     return (
         <View>
-            <Text>{t('navigation.transactionsTitle')}</Text>
         </View>
     )
 }

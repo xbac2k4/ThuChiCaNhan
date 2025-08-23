@@ -26,6 +26,7 @@ import Loading from './src/components/loading/Loading';
 import NetInfo from '@react-native-community/netinfo';
 import 'react-native-reanimated';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { bgColors } from 'constants/theme';
 
 GoogleSignin.configure({
   webClientId: '648879855037-q63il498eetrfq4r7g8ob4h9vm9ba0d1.apps.googleusercontent.com',
@@ -79,7 +80,7 @@ function App(): JSX.Element {
 const ProviderApp = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: bgColors.BG_WHITE }}>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <React.Fragment>
             <StatusBar

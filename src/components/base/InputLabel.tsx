@@ -50,7 +50,7 @@ const InputLabel: React.FC<TextFieldBaseProps> = ({
           <Block justifyBetween>
             <Text
               style={{
-                color: colors.PRIMARY,
+                color: colors.BLACK,
                 fontWeight: 'bold',
                 fontSize: fontSizes.FONT_16,
                 ...titleStyle,

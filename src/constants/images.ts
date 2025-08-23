@@ -19,6 +19,8 @@ const images = {
   icon_calendar: require('assets/images/calendar.png'),
   user: require('assets/images/user.jpg'),
   record: require('assets/images/record.png'),
+  bg_header: require('assets/images/bg_header.png'),
+  loading: require('assets/animations/loading.json'),
 };
 
 export const icons = {

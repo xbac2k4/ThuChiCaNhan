@@ -6,6 +6,9 @@ import SplashScreen from '../screens/auth/SplashScreen';
 // import ProfileScreen from '';
 import DrawBar from './DrawBar';
 import BottomBar from './BottomBar';
+import WalletScreen from 'screens/wallets/WalletScreen';
+import ComeInScreen from 'screens/comein/ComeInScreen';
+import ComeOutScreen from 'screens/comeout/ComeOutScreen';
 
 const COMMON_COMPONENTS = {
   SPLASH: {
@@ -32,20 +35,26 @@ const COMMON_COMPONENTS = {
       headerShown: false,
     },
   },
-  // CHANGEPASS: {
-  //   component: ChangePassword,
-  //   options: {
-  //     headerTitle: 'Đổi mật khẩu',
-  //   },
-  // },
-  // PROFILE: {
-  //   component: ProfileScreen,
-  //   options: {
-  //     headerTitle: 'Hồ sơ',
-  //   },
-  // },
   MAIN: {
     component: BottomBar,
+    options: {
+      headerShown: false,
+    },
+  },
+  WALLET_SCREEN: {
+    component: WalletScreen,
+    options: {
+      headerShown: false,
+    },
+  },
+  COMEIN_SCREEN: {
+    component: ComeInScreen,
+    options: {
+      headerShown: false,
+    },
+  },
+  COMEOUT_SCREEN: {
+    component: ComeOutScreen,
     options: {
       headerShown: false,
     },

@@ -3,7 +3,7 @@ import Block from './Block';
 import Text from './Text';
 import { memo } from 'react';
 import { colors, fontSizes } from 'constants/theme';
-import { TextStyle, ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 type ButtonType = {
@@ -25,24 +25,27 @@ const Button: React.FC<ButtonType> = ({
   linearColors,
   colorText,
 }) => {
-  if (linearColors) {
+  if (linearColors && linearColors.length > 0) {
     const bgColor = styleBtn?.backgroundColor
       ? styleBtn?.backgroundColor.toString()
       : colors.SECONDARY;
+
     return (
-      <LinearGradient
-        colors={linearColors ? linearColors : [bgColor, bgColor]}
-        onTouchStart={() => onPress && onPress()}
-        style={{
-          flex: 1,
-          ...styleBtn,
-        }}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}>
-        <Block flex={1} center middle>
+      <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+        <LinearGradient
+          colors={linearColors ?? [bgColor, bgColor]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={{
+            padding: 10,
+            borderRadius: 8,
+            alignItems: 'center',
+            justifyContent: 'center',
+            ...styleBtn,
+          }}>
           <Text
             style={{
-              color: colors.WHITE,
+              color: colorText ?? colors.WHITE,
               textTransform: 'uppercase',
               fontSize: fontSizes.FONT_16,
               fontWeight: 'bold',
@@ -50,22 +53,22 @@ const Button: React.FC<ButtonType> = ({
             }}>
             {name}
           </Text>
-        </Block>
-      </LinearGradient>
+        </LinearGradient>
+      </TouchableOpacity>
     );
   }
+
   return (
     <Block
-      shadow
       center
+      borderAll
       middle
       style={{ backgroundColor: colors.PRIBTNYELLOW, ...styleBtn }}
       onPress={onPress}
-      p={10}
-    >
+      p={10}>
       <Text
         style={{
-          color: colorText ? colorText : colors.PRIMARY,
+          color: colorText ?? colors.PRIMARY,
           textTransform: 'uppercase',
           fontSize: fontSizes.FONT_16,
           fontWeight: 'bold',

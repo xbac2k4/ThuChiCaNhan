@@ -9,9 +9,6 @@ const StatisticalScreen: React.FC<NavigationScreenProps> = ({
 }) => {
     return (
         <View>
-            <Button title='CLICK' onPress={() => {
-                navigation.navigate('HOME')
-            }} />
         </View>
     )
 }

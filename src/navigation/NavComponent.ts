@@ -4,7 +4,6 @@ import RegisterScreen from '../screens/auth/RegisterScreen';
 import SplashScreen from '../screens/auth/SplashScreen';
 // import ChangePassword from '';
 // import ProfileScreen from '';
-import DrawBar from './DrawBar';
 import BottomBar from './BottomBar';
 import WalletScreen from 'screens/wallets/WalletScreen';
 import ComeInScreen from 'screens/comein/ComeInScreen';

@@ -9,8 +9,6 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import Text from "components/base/Text";
 import Block from "components/base/Block";
 import { storeT } from "utils/Http";
-import { Modal, View } from "react-native-ui-lib";
-import * as Animatable from 'react-native-animatable';
 import ModalBottom from '@components/modal/ModalBottom'
 import LinearGradient from 'react-native-linear-gradient';
 import { navigate } from "utils/NavigationUtils";
@@ -18,31 +16,6 @@ import { COMMON_PATHS } from "./Path";
 
 
 const BottomTab = createBottomTabNavigator();
-
-const CustomHeader = () => {
-
-    return (
-        <Block
-            height={50}
-            justifyBetween
-            p={10}
-            middle
-            row
-            bg={colors.TRANSPARENT}>
-            <Block>
-                <Text style={{ color: colors.GRAY, fontSize: fontSizes.FONT_16 }}>Xin chào, {storeT.getUser()}</Text>
-            </Block>
-            <Block row style={{ gap: 10 }}>
-                <Block>
-                    <IconMT name={'magnify'} color={colors.BLACK} size={24} />
-                </Block>
-                <Block>
-                    <IconMT name={'bell'} color={colors.BLACK} size={24} />
-                </Block>
-            </Block>
-        </Block>
-    );
-}
 
 const MyTabBar = ({ state, descriptors, navigation }: any) => {
     const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -163,9 +136,6 @@ const MyBottomBar: React.FC = () => {
                     shadowOpacity: 0.22,
                     shadowRadius: 2.22,
                     elevation: 3,
-                },
-                header: ({ route, options }) => {
-                    return <CustomHeader key={route.key} />;
                 },
                 headerTitleAlign: 'center',
                 headerTintColor: 'white',

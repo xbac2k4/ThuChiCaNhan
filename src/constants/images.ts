@@ -31,6 +31,11 @@ export const icons = {
   ic_pin: require('assets/icons/map.png'),
 };
 
+export const backgrounds = {
+  bg_item_category: require('assets/backgrounds/bg_item_category.png'),
+  bg_banner :require('assets/backgrounds/bg_banner.png')
+}
+
 export const xml = `<svg xmlns="http://www.w3.org/2000/svg" width="143" height="20" viewBox="0 0 143 20" fill="none">
 <path d="M19.0451 0L12.2442 6.80083L5.44342 0H0V19.0451H5.44342V8.16168L12.2442 14.966L19.0451 8.16168V19.0451H24.4885V0H19.0451Z" fill="#64BAFB"></path>
 <path d="M24.4883 19.0451H32.65L43.5368 8.16168V13.6051H39.4542V19.0451H48.9768V0H43.5368L24.4883 19.0451Z" fill="#64BAFB"></path>

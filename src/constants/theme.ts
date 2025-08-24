@@ -182,7 +182,7 @@ const colors = {
 };
 
 const bgColors = {
-  BG_WHITE: '#FEFEFE',
+  BG_WHITE: '#FFFFFF',
   BLUE_BASE: '#42A6ED',
   BG_BLUE: '#71C4FF',
   BG_BLUE1: '#0966A7',

@@ -1,7 +1,6 @@
 import NetInfo from '@react-native-community/netinfo';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {APP_CODE} from '../constants/url';
 import {showMessage} from 'react-native-flash-message';
 import {COMMON_PATHS} from '../navigation/Path';
 import {navigate} from './NavigationUtils';

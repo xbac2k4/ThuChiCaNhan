@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Animated, FlatList } from 'react-native'
+import { StyleSheet, Text, View, Animated, FlatList, KeyboardAvoidingView, Platform, TextInput } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { NavigationScreenProps } from '../../common/type';
 import { memo } from 'react';
@@ -17,7 +17,7 @@ import Button from 'components/base/Button';
 import HeaderBase from 'components/base/HeaderBase';
 import { AddWalletService, DeleteWalletService } from 'services/walletServices';
 import logger from 'helper/logger';
-import { RefreshControl } from 'react-native-gesture-handler';
+import { RefreshControl, ScrollView } from 'react-native-gesture-handler';
 import ModalBottom from '@components/modal/ModalBottom'
 
 const WalletScreen: React.FC<NavigationScreenProps> = ({
@@ -113,80 +113,86 @@ const WalletScreen: React.FC<NavigationScreenProps> = ({
     ];
 
     return (
-        <Block flex={1}>
-            <HeaderBase title='Ví' />
-            <Skeleton isLoading={false} showContent>
+        <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <Block flex={1}>
-                    <Block flex={1}>
-                        <FlatList
-                            refreshControl={
-                                <RefreshControl refreshing={refresh} onRefresh={onResfresh} />
-                            }
-                            data={data}
-                            renderItem={renderItem}
-                            keyExtractor={item => item?.id.toString()}
-                            showsVerticalScrollIndicator={false}
-                            contentContainerStyle={{ padding: 10 }} />
-                    </Block>
-                    <Block p={10}>
-                        <Button
-                            linearColors={[bgColors.BG_BLUE, bgColors.BG_BLUE1]}
-                            name='THÊM'
-                            onPress={() => setIsShowAdd(true)} />
-                    </Block>
+                    <HeaderBase title='Ví' />
+                    <Skeleton isLoading={false} showContent>
+                        <Block flex={1}>
+                            <Block flex={1}>
+                                <FlatList
+                                    refreshControl={
+                                        <RefreshControl refreshing={refresh} onRefresh={onResfresh} />
+                                    }
+                                    data={data}
+                                    renderItem={renderItem}
+                                    keyExtractor={item => item?.id.toString()}
+                                    showsVerticalScrollIndicator={false}
+                                    contentContainerStyle={{ padding: 10 }} />
+                            </Block>
+                            <Block p={10}>
+                                <Button
+                                    linearColors={[bgColors.BG_BLUE, bgColors.BG_BLUE1]}
+                                    name='THÊM'
+                                    onPress={() => setIsShowAdd(true)} />
+                            </Block>
+                        </Block>
+                    </Skeleton>
+                    <AlertModal
+                        isShow={isShowAdd}
+                        title='Tạo tài khoản mới'
+                        close={() => {
+                            setIsShowAdd(false);
+                            setValue({
+                                name: '',
+                                balance: '',
+                                note: ''
+                            });
+                        }}
+                        onPress={() => {
+                            addWallet();
+                        }}
+                        children={(
+                            <Block>
+                                <InputLabel
+                                    title="Tên"
+                                    onChangeValue={(val) => {
+                                        setValue({
+                                            ...value,
+                                            name: val,
+                                        });
+                                    }}
+                                    textValue={value?.name}
+                                />
+                                <InputLabel
+                                    title='Lượng ban đầu'
+                                    onChangeValue={(val) => {
+                                        setValue({
+                                            ...value,
+                                            balance: val,
+                                        });
+                                    }}
+                                    textValue={value?.balance}
+                                />
+                                <InputLabel
+                                    title='Ghi chú'
+                                    onChangeValue={(val) => {
+                                        setValue({
+                                            ...value,
+                                            note: val,
+                                        });
+                                    }}
+                                    textValue={value?.note}
+                                />
+                            </Block>
+                        )}
+                    />
+                    <ModalBottom title="Lựa chọn" visible={isVisibleOptions} onClose={() => setIsVisibleOptions(false)} options={modalOptions} />
                 </Block>
-            </Skeleton>
-            <AlertModal
-                isShow={isShowAdd}
-                title='Tạo tài khoản mới'
-                close={() => {
-                    setIsShowAdd(false);
-                    setValue({
-                        name: '',
-                        balance: '',
-                        note: ''
-                    });
-                }}
-                onPress={() => {
-                    addWallet();
-                }}
-                children={(
-                    <Block >
-                        <InputLabel
-                            title="Tên"
-                            onChangeValue={(val) => {
-                                setValue({
-                                    ...value,
-                                    name: val,
-                                });
-                            }}
-                            textValue={value?.name}
-                        />
-                        <InputLabel
-                            title='Lượng ban đầu'
-                            onChangeValue={(val) => {
-                                setValue({
-                                    ...value,
-                                    balance: val,
-                                });
-                            }}
-                            textValue={value?.balance}
-                        />
-                        <InputLabel
-                            title='Ghi chú'
-                            onChangeValue={(val) => {
-                                setValue({
-                                    ...value,
-                                    note: val,
-                                });
-                            }}
-                            textValue={value?.note}
-                        />
-                    </Block>
-                )}
-            />
-            <ModalBottom title="Lựa chọn" visible={isVisibleOptions} onClose={() => setIsVisibleOptions(false)} options={modalOptions} />
-        </Block>
+            </ScrollView>
+        </KeyboardAvoidingView>
     )
 }
 export default memo(WalletScreen, isEqual);

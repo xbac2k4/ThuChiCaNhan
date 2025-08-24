@@ -7,7 +7,6 @@ import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as yup from 'yup';
-import { Formik } from 'formik';
 import { showMessage } from 'react-native-flash-message';
 import { register } from '../../services/authServices';
 import LinearGradient from 'react-native-linear-gradient';
@@ -86,84 +85,6 @@ const RegisterScreen = () => {
           </Block>
         </Block>
 
-        <Formik
-          validateOnChange={false}
-          validationSchema={validationSchema}
-          initialValues={{ username: '', password: '', confirmpassword: '' }}
-          enableReinitialize
-          onSubmit={(values: RegisterType) => handleOnSubmit(values)}>
-          {({
-            values,
-            errors,
-            handleChange,
-            handleSubmit,
-            resetForm,
-            setValues,
-            setFieldValue,
-          }) => {
-            function onSubmit(values: RegisterType): void {
-              throw new Error('Function not implemented.');
-            }
-
-            return (
-              <>
-                <Block flex={1} ph={20}>
-                  <SectionInput
-                    title="Tên đăng nhập"
-                    require
-                    placeholder="Tài khoản ..."
-                    onChangeText={(val: string) => {
-                      setFieldValue('username', val);
-                    }}
-                    value={values.username}
-                  />
-                  {errors.username && (
-                    <Text style={{ color: 'red' }}>{errors.username}</Text>
-                  )}
-
-                  <SectionInput
-                    title="Mật khẩu"
-                    require
-                    secureTextEntry
-                    placeholder="Mật khẩu ..."
-                    onChangeText={(val: string) => {
-                      setFieldValue('password', val);
-                    }}
-                    value={values.password}
-                  />
-                  {errors.password && (
-                    <Text style={{ color: 'red' }}>{errors.username}</Text>
-                  )}
-
-                  <SectionInput
-                    title="Nhập lại mật khẩu"
-                    require
-                    secureTextEntry
-                    placeholder="Xác nhận mật khẩu ..."
-                    onChangeText={(val: string) => {
-                      setFieldValue('confirmpassword', val);
-                    }}
-                    value={values.confirmpassword}
-                  />
-                  {errors.confirmpassword && (
-                    <Text style={{ color: 'red' }}>{errors.username}</Text>
-                  )}
-                </Block>
-                <Block p={40}>
-                  <Button
-                    styleBtn={{
-                      backgroundColor: colors.PRIMARY,
-                      borderRadius: 20,
-                    }}
-                    name="Đăng ký"
-                    textStyle={{ color: colors.WHITE }}
-                    onPress={() => handleOnSubmit(values)}
-                  />
-                </Block>
-              </>
-            );
-          }}
-        </Formik>
       </ScrollView>
     </LinearGradient>
   );

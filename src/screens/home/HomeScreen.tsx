@@ -1,6 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Animated, FlatList, TextInput } from 'react-native'
 import React, { useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationScreenProps } from '../../common/type';
 import { memo } from 'react';

@@ -1,4 +1,6 @@
+import Block from 'components/base/Block';
 import images, { backgrounds } from 'constants/images';
+import { colors } from 'constants/theme';
 import React, { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import { StyleSheet, Text, TouchableOpacity, View, FlatList, ImageBackground } from 'react-native';
@@ -10,15 +12,13 @@ interface Category {
     value: string;
     percentage: string;
 }
-    const COLORS_BG_CATEGORY = [
-        '#6A45DC',
-        '#EA9F45',
-        '#6BC0E2',
-    ];
+const COLORS_BG_CATEGORY = [
+    '#6A45DC',
+    '#EA9F45',
+    '#6BC0E2',
+];
 
-// Không cần CategoryListProps nữa vì dữ liệu được quản lý ở đây
 const CategoryList: React.FC = () => {
-    // Dữ liệu mẫu cho các danh mục chi tiêu, được chuyển vào đây
     const categories: Category[] = [
         { id: '1', name: 'Cần thiết', value: '1.000.000', percentage: '55%'},
         { id: '2', name: 'Đào tạo', value: '1.000.000', percentage: '10%' },
@@ -28,16 +28,16 @@ const CategoryList: React.FC = () => {
         { id: '6', name: 'Đào tạo', value: '1.000.000', percentage: '10%' },
     ];
 
-   
+
     const renderCategoryItem = ({ item, index }: { item: Category, index: number }) => {
         const backgroundColor = COLORS_BG_CATEGORY[index % COLORS_BG_CATEGORY.length];
         return (
             <TouchableOpacity style={[styles.categoryBtn, { backgroundColor: backgroundColor }]}>
-                 <ImageBackground style={{flex:1,padding: 15,}} source={backgrounds.bg_item_category}>
+                <ImageBackground style={{ flex: 1, padding: 15, }} source={backgrounds.bg_item_category}>
                     <Text style={styles.categoryName}>{item.name}</Text>
                     <Text style={styles.categoryValue}>{item.value}</Text>
                     <Text style={styles.categoryPercentage}>{item.percentage}</Text>
-                 </ImageBackground>
+                </ImageBackground>
             </TouchableOpacity>
         );
     };
@@ -46,11 +46,22 @@ const CategoryList: React.FC = () => {
         <View style={{ marginHorizontal: 16, marginTop: 20 }}>
             <Text style={styles.categoryTitle}>Chi theo phân loại</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <TouchableOpacity style={styles.addCategoryBtn}>
-                    <Text style={styles.addBtnText}>+</Text>
-                </TouchableOpacity>
                 <FlatList
                     data={categories}
+                    ListHeaderComponent={() => {
+                        return (
+                            <TouchableOpacity style={styles.addCategoryBtn}>
+                                <Text style={styles.addBtnText}>+</Text>
+                            </TouchableOpacity>
+                        )
+                    }}
+                    ListEmptyComponent={() => {
+                        return (
+                            <Block flex={1}>
+                                <Text style={{ width: '100%', color: colors.BLACK, flexWrap: 'wrap' }}>Tạo hoặc lựa chọn quỹ tiết kiệm để chúng tôi giúp bạn quản lý tài chính hiệu quả</Text>
+                            </Block>
+                        )
+                    }}
                     renderItem={renderCategoryItem}
                     keyExtractor={item => item.id}
                     horizontal={true}
@@ -72,6 +83,7 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         paddingVertical: 10,
+        alignItems: 'center',
     },
     addCategoryBtn: {
         width: 60,

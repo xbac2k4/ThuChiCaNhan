@@ -3,7 +3,6 @@ import { colors } from 'constants/theme';
 import React from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import { Line } from 'react-native-svg';
 
 type Option = {
     title: string;

@@ -1,29 +1,24 @@
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Animated, FlatList, TextInput, ImageBackground } from 'react-native'
-import React, { useRef, useState } from 'react' // Thêm useState vào đây
-import { useTranslation } from 'react-i18next'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import React, { useRef, useState } from 'react'
 import { NavigationScreenProps } from '../../common/type';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import Block from '../../components/base/Block';
-import IconMT from '../../components/icon/IconMT';
-import { stylesCustom } from '../../constants/styleCustom';
-import Skeleton from '../../components/base/Skeleton';
-import FloatBtnAdd from './components/FloatBtnAdd';
 import CategoryList from './components/Categorize_expenses';
 import RecentTransactions from './components/RecentTransactions';
 import { ScrollView } from 'react-native-gesture-handler';
 import { backgrounds } from 'constants/images';
+import CustomHeader from './components/CustomHeader';
 
 const HomeScreen: React.FC<NavigationScreenProps> = ({
     navigation
 }) => {
-    // Thêm lại dòng này để khai báo state
     const [selectedTab, setSelectedTab] = useState<'chi' | 'thu'>('chi');
 
     return (
         <Block flex={1}>
             <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+                <CustomHeader />
                 <ImageBackground style={styles.bannerContainer} source={backgrounds.bg_banner}>
                     <View style={styles.bannerBackground}>
                     <Text style={styles.bannerTitle}>Số tiền bạn chi trong tháng</Text>

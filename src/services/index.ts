@@ -5,7 +5,6 @@ import { replace } from '../utils/NavigationUtils';
 import {
   logout,
 } from './authServices';
-import { OneSignal } from 'react-native-onesignal';
 import moment from 'moment';
 import { doneFetching, fetching } from '../store/reducer/commonReducer';
 import { UserLogin } from '../common/type';

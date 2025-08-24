@@ -14,7 +14,7 @@ export const Tab: TabScreens[] = [
     options: {
       tabBarLabel: 'Tổng quan',
       title: 'Tổng quan',
-      headerShown: true,
+      headerShown: false,
       tabBarIcon: {
         isNotification: false,
         icon: Icons.over_view,

@@ -2,9 +2,8 @@ import Block from './Block';
 import Spacer from './Spacer';
 import { colors, fontSizes } from 'constants/theme';
 import { memo, useState } from 'react';
-import { TextField } from 'react-native-ui-lib';
+import { TextInput, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import isEqual from 'react-fast-compare';
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import Icons from 'common/icons';
 import IconMT from 'components/icon/IconMT';
 import Text from './Text';
@@ -53,43 +52,45 @@ const InputLabel: React.FC<TextFieldBaseProps> = ({
                 color: colors.BLACK,
                 fontWeight: 'bold',
                 fontSize: fontSizes.FONT_16,
-                ...titleStyle,
+                ...(titleStyle as object),
               }}>
-              {` ${title}`}{' '}
-              {error ? <Text style={{ color: colors.ERROR }}>*</Text> : null}{' '}
+              {` ${title}`}
+              {error ? <Text style={{ color: colors.ERROR }}> *</Text> : null}
             </Text>
           </Block>
           <Spacer height={5} />
         </>
       ) : null}
 
-      <TextField
-        autoFocus={autoFocus ?? false}
-        onFocus={onFocus}
-        useGestureHandlerInput={true}
-        placeholder={textPlaceHolder}
-        placeholderTextColor={colors.BLACK}
-        onChangeText={val => onChangeValue(val)}
-        enableErrors={false}
-        containerStyle={{ ...styles.containerStyle, ...containerStyle }}
-        autoCapitalize="none"
-        allowFontScaling={false}
-        multiline={mutilLine}
-        value={textValue}
-        style={{ ...styles.defaultStyle, ...inputStyle }}
-        trailingAccessory={
-          secureText ? (
-            <Block p={5} onPress={() => setShowPassword(!showPassword)}>
-              <IconMT
-                name={showPassword ? Icons.eye_off : Icons.eye}
-                size={20}
-                color={colors.GRAY}
-              />
-            </Block>
-          ) : undefined
-        }
-        {...{ secureTextEntry: secureText ? showPassword : false }}
-      />
+      <Block
+        row
+        middle
+        style={{ ...styles.containerStyle, ...(containerStyle as object) }}>
+        <TextInput
+          autoFocus={autoFocus ?? false}
+          onFocus={onFocus}
+          placeholder={textPlaceHolder}
+          placeholderTextColor={colors.GRAY}
+          onChangeText={val => onChangeValue(val)}
+          autoCapitalize="none"
+          allowFontScaling={false}
+          multiline={mutilLine}
+          value={textValue}
+          secureTextEntry={secureText ? showPassword : false}
+          style={{ ...styles.defaultStyle, ...(inputStyle as object) }}
+        />
+
+        {secureText ? (
+          <Block p={5} onPress={() => setShowPassword(!showPassword)}>
+            <IconMT
+              name={showPassword ? Icons.eye_off : Icons.eye}
+              size={20}
+              color={colors.GRAY}
+            />
+          </Block>
+        ) : null}
+      </Block>
+
       <Block pt={5}>
         {error?.isError ? (
           <Text
@@ -115,17 +116,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.GRAY2,
     borderRadius: 5,
-    padding: 8,
+    paddingHorizontal: 8,
     backgroundColor: colors.GRAY4,
     overflow: 'hidden',
   },
   defaultStyle: {
+    flex: 1,
     minHeight: 30,
     color: colors.BLACK,
     paddingLeft: 10,
     textAlign: 'left',
     writingDirection: 'ltr',
-    alignItems: 'flex-start',
-    overflow: 'hidden',
   },
 });

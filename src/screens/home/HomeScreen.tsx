@@ -9,35 +9,50 @@ import RecentTransactions from './components/RecentTransactions';
 import { ScrollView } from 'react-native-gesture-handler';
 import { backgrounds } from 'constants/images';
 import CustomHeader from './components/CustomHeader';
+import { colors } from 'constants/theme';
 
 const HomeScreen: React.FC<NavigationScreenProps> = ({
     navigation
 }) => {
     const [selectedTab, setSelectedTab] = useState<'chi' | 'thu'>('chi');
+    const [text, setText] = useState<string>('');
 
     return (
         <Block flex={1}>
             <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
                 <CustomHeader />
+                <View>
+                    <TextInput
+                        placeholder='Nhập'
+                        placeholderTextColor={colors.GRAY}
+                        style={{
+                            borderColor: '#000000',
+                            borderWidth: 1,
+                            margin: 10,
+                            color: '#000000',
+                            padding: 5,
+                            borderRadius: 10
+                        }} value={text} onChangeText={(val: any) => setText(val)} />
+                </View>
                 <ImageBackground style={styles.bannerContainer} source={backgrounds.bg_banner}>
                     <View style={styles.bannerBackground}>
-                    <Text style={styles.bannerTitle}>Số tiền bạn chi trong tháng</Text>
+                        <Text style={styles.bannerTitle}>Số tiền bạn chi trong tháng</Text>
                         <TouchableOpacity>
                             <Text style={styles.bannerLink}>Xem chi tiết → </Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.amountContainer}>
                         <Text style={styles.amountText}
-                             numberOfLines={1}
+                            numberOfLines={1}
                             adjustsFontSizeToFit={true}>
                             100.000.000
-                            </Text>
-                            <Text style={styles.balanceText}
-                                numberOfLines={1}
-                                adjustsFontSizeToFit={true} >
-                                Số dư: 100.000.000
-                            </Text>
-                        </View>
+                        </Text>
+                        <Text style={styles.balanceText}
+                            numberOfLines={1}
+                            adjustsFontSizeToFit={true} >
+                            Số dư: 100.000.000
+                        </Text>
+                    </View>
                 </ImageBackground>
 
                 <CategoryList />
@@ -78,13 +93,13 @@ export default memo(HomeScreen, isEqual);
 const styles = StyleSheet.create({
     scrollView: {
         flex: 1,
-        
+
     },
     bannerContainer: {
         backgroundColor: '#FFFFFF',
         borderRadius: 16,
         margin: 16,
-        padding:20,
+        padding: 20,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -103,7 +118,7 @@ const styles = StyleSheet.create({
         marginTop: 8,
     },
     amountContainer: {
-        backgroundColor:"#FFFFFF",
+        backgroundColor: "#FFFFFF",
         borderWidth: 1,
         borderColor: '#E0E0E0',
         borderStyle: 'dashed',

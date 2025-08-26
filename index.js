@@ -7,6 +7,4 @@ import App from './App';
 import {name as appName} from './app.json';
 import 'react-native-gesture-handler';
 
-require('react-native-ui-lib/config').setConfig({appScheme: 'default'});
-
 AppRegistry.registerComponent(appName, () => App);

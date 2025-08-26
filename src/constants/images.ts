@@ -1,10 +1,10 @@
-import {Assets} from 'react-native-ui-lib';
+// import {Assets} from 'react-native';
 
-Assets.loadAssetsGroup('icons', {
-  alert: require('assets/images/logo.png'),
-  // hide: require('assets/icons/hide.png'),
-  // show: require('assets/icons/view.png'),
-});
+// Assets.loadAssetsGroup('icons', {
+//   alert: require('assets/images/logo.png'),
+//   // hide: require('assets/icons/hide.png'),
+//   // show: require('assets/icons/view.png'),
+// });
 
 const images = {
   logo: require('assets/images/logo.png'),

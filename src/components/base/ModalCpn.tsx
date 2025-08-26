@@ -1,6 +1,6 @@
 import { ReactNode, memo } from 'react';
 import isEqual from 'react-fast-compare';
-import { Modal } from 'react-native-ui-lib';
+import { Modal } from 'react-native';
 import Block from './Block';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

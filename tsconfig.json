@@ -13,8 +13,12 @@
       "@navigation/*": ["src/navigation/*"],
       "@screens/*": ["src/screens/*"],
       "@store/*": ["src/store/*"],
-      "@common/*": ["src/common/*"]
-
+      "@common/*": ["src/common/*"],
+      "@configs/*": ["src/configs/*"],
+      "@helper/*": ["src/helper/*"],
+      "@language/*": ["src/language/*"],
+      "@patches/*": ["src/patches/*"],
+      "@types/*": ["src/types/*"]
     },
   },
   "typeRoots": ["./node_modules/@types", "./src/types"],

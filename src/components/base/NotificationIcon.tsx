@@ -1,11 +1,11 @@
 import React from 'react';
 import isEqual from 'react-fast-compare';
 import { StyleSheet, View } from 'react-native';
-import { Badge } from 'react-native-ui-lib';
 import { connect, useSelector } from 'react-redux';
 import { colors } from 'constants/theme';
 import IconMT from 'components/icon/IconMT';
 import { RootState } from 'store/store';
+import Block from './Block';
 
 interface NotificationType {
   isforcus?: boolean;
@@ -24,13 +24,8 @@ const NotificationIcon = ({ isforcus, color, size }: NotificationType) => {
         size={size}
       />
       {unRead > 0 ? (
-        <Badge
-          size={12}
-          labelStyle={{ color: '#fff' }}
-          label={''}
-          labelFormatterLimit={2}
-          containerStyle={styles.icon}
-          backgroundColor={colors.ERROR}
+        <View
+          style={{ ...styles.icon }}
         />
       ) : null}
     </View>
@@ -44,5 +39,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -3,
     right: -5,
+    width: 24, 
+    height: 24,
+    borderRadius: 5,
+    backgroundColor: colors.ERROR
   },
 });

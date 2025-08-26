@@ -5,7 +5,7 @@ import IconMT from 'components/icon/IconMT';
 import { colors } from 'constants/theme';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import { TouchableOpacity } from 'react-native-ui-lib';
+import { TouchableOpacity } from 'react-native';
 
 const FloatCircleBtn = ({ onPress, bgColor, iconName, iconColor }: BtnType) => {
   return (

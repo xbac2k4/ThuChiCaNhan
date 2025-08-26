@@ -1,4 +1,4 @@
-import { Image } from 'react-native-ui-lib';
+import { Image } from 'react-native';
 import { useEffect } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import { getNecessaryData } from '../../services';

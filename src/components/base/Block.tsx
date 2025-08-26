@@ -7,7 +7,7 @@ import {
 import {moderateScale, scale, verticalScale} from 'utils/Responsive';
 import React, {ReactNode} from 'react';
 import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
-import {TouchableOpacity} from 'react-native-ui-lib';
+import {TouchableOpacity} from 'react-native';
 import {colors} from 'constants/theme';
 import { ColorsDefault } from 'assets/colors';
 

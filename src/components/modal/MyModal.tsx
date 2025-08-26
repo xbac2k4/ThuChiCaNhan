@@ -4,7 +4,7 @@ import Spacer from 'components/base/Spacer';
 import Text from 'components/base/Text';
 import { bgColors, colors, fontSizes } from 'constants/theme';
 import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
-import { Modal } from 'react-native-ui-lib';
+import { Modal } from 'react-native';
 import Icons from 'common/icons';
 import { ReactNode, memo } from 'react';
 import isEqual from 'react-fast-compare';

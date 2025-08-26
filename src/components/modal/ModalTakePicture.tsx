@@ -6,7 +6,7 @@ import isEqual from 'react-fast-compare';
 import {StyleSheet} from 'react-native';
 import ImageCropPicker from 'react-native-image-crop-picker';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Modal} from 'react-native-ui-lib';
+import {Modal} from 'react-native';
 
 type ModalTakePictureType = {
   isShow: boolean;

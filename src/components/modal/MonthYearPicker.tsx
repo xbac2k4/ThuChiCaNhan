@@ -5,7 +5,7 @@ import { colors, fontSizes } from 'constants/theme';
 import { memo, useEffect, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Modal } from 'react-native-ui-lib';
+import { Modal } from 'react-native';
 import { Picker as Weelicker } from 'react-native-wheel-pick';
 
 type ModalType = {

@@ -4,7 +4,7 @@ import images from 'constants/images';
 import {memo, useEffect, useState} from 'react';
 import isEqual from 'react-fast-compare';
 import {ImageStyle, StyleProp, StyleSheet, ViewStyle} from 'react-native';
-import {Image, View} from 'react-native-ui-lib';
+import {Image, View} from 'react-native';
 import {useSelector} from 'react-redux';
 import {RootState} from 'store/store';
 

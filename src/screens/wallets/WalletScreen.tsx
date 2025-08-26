@@ -4,7 +4,6 @@ import { NavigationScreenProps } from '../../common/type';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import Block from '../../components/base/Block';
-import Skeleton from '../../components/base/Skeleton';
 import Icons from 'common/icons';
 import { bgColors, colors, fontSizes } from 'constants/theme';
 import InputLabel from 'components/base/InputLabel';
@@ -119,27 +118,25 @@ const WalletScreen: React.FC<NavigationScreenProps> = ({
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <Block flex={1}>
                     <HeaderBase title='Ví' />
-                    <Skeleton isLoading={false} showContent>
+                    <Block flex={1}>
                         <Block flex={1}>
-                            <Block flex={1}>
-                                <FlatList
-                                    refreshControl={
-                                        <RefreshControl refreshing={refresh} onRefresh={onResfresh} />
-                                    }
-                                    data={data}
-                                    renderItem={renderItem}
-                                    keyExtractor={item => item?.id.toString()}
-                                    showsVerticalScrollIndicator={false}
-                                    contentContainerStyle={{ padding: 10 }} />
-                            </Block>
-                            <Block p={10}>
-                                <Button
-                                    linearColors={[bgColors.BG_BLUE, bgColors.BG_BLUE1]}
-                                    name='THÊM'
-                                    onPress={() => setIsShowAdd(true)} />
-                            </Block>
+                            <FlatList
+                                refreshControl={
+                                    <RefreshControl refreshing={refresh} onRefresh={onResfresh} />
+                                }
+                                data={data}
+                                renderItem={renderItem}
+                                keyExtractor={item => item?.id.toString()}
+                                showsVerticalScrollIndicator={false}
+                                contentContainerStyle={{ padding: 10 }} />
                         </Block>
-                    </Skeleton>
+                        <Block p={10}>
+                            <Button
+                                linearColors={[bgColors.BG_BLUE, bgColors.BG_BLUE1]}
+                                name='THÊM'
+                                onPress={() => setIsShowAdd(true)} />
+                        </Block>
+                    </Block>
                     <AlertModal
                         isShow={isShowAdd}
                         title='Tạo tài khoản mới'

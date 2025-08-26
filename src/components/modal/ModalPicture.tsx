@@ -5,7 +5,7 @@ import { colors } from 'constants/theme';
 import React, { memo, useEffect, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Image, Modal } from 'react-native-ui-lib';
+import { Image, Modal } from 'react-native';
 import Zoomable from 'components/animation/Zoomable';
 import { StyleSheet } from 'react-native';
 import { storeT } from 'utils/Http';
@@ -75,18 +75,7 @@ type ImageRender = {
 export const ImageRender = memo(({ images }: ImageRender) => {
   const [ShowImage, setShowImage] = useState<any>({});
   const [showPicture, setShowPicture] = useState<boolean>(false);
-  const [ENDPOINT, setENPOINT] = useState<string | null>('');
 
-  const getEndpoint = async () => {
-    try {
-      const url = await storeT.getURL();
-      setENPOINT(url);
-    } catch (error) { }
-  };
-
-  useEffect(() => {
-    getEndpoint();
-  }, []);
   return (
     <Block row ph={15} maxWidth={'100%'} style={{ flexWrap: 'wrap' }}>
       {images && images?.length > 0

@@ -8,7 +8,7 @@ import isEqual from 'react-fast-compare';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as yup from 'yup';
 import { showMessage } from 'react-native-flash-message';
-import { register } from '../../services/AuthServices';
+import { register } from 'services/authServices';
 import LinearGradient from 'react-native-linear-gradient';
 
 type RegisterType = {

@@ -1,6 +1,6 @@
 import { doneFetching, fetching } from "store/reducer/CommonReducer";
 import { store } from "store/store";
-import { addDocument, deleteData, readCollection, updateDocument } from "./FirebaseServices";
+import { addDocument, deleteData, readCollection, updateDocument } from "./firebaseServices";
 import { collections } from "constants/collectionFirebase";
 import { showMessage } from "react-native-flash-message";
 

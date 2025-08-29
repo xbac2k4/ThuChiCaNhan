@@ -8,13 +8,13 @@ import Icons from 'common/icons';
 import { bgColors, colors, fontSizes } from 'constants/theme';
 import InputLabel from 'components/base/InputLabel';
 import { AlertModal } from 'components/modal/MyModal';
-import { readCollection } from 'services/FirebaseServices';
+import { readCollection } from 'services/firebaseServices';
 import { formatCurrencyVND } from 'utils/FomatNumber';
 import IconMT from 'components/icon/IconMT';
 import Spacer from 'components/base/Spacer';
 import Button from 'components/base/Button';
 import HeaderBase from 'components/base/HeaderBase';
-import { AddWalletService, DeleteWalletService } from 'services/WalletServices';
+import { AddWalletService, DeleteWalletService } from 'services/walletServices';
 import logger from 'helper/logger';
 import { RefreshControl } from 'react-native-gesture-handler';
 import ModalBottom from '@components/modal/ModalBottom'

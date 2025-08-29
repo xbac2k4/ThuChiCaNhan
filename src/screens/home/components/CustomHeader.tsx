@@ -5,17 +5,13 @@ import Block from 'components/base/Block';
 import { colors, fontSizes } from 'constants/theme';
 import IconMT from 'components/icon/IconMT';
 import { storeT } from 'utils/Http';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/store';
 
 const CustomHeader = () => {
-    const [user, setUser] = useState<any>('');
-    const getUser = async () => {
-        const user = await storeT.getUser();
-        setUser(user);
-    }
-
-    useEffect(() => {
-        getUser();
-    }, []);
+    const { profile } = useSelector(
+        (state: RootState) => state.AuthReducer,
+    );
     return (
         <Block
             height={50}
@@ -25,7 +21,7 @@ const CustomHeader = () => {
             row
             bg={colors.TRANSPARENT}>
             <Block>
-                <Text style={{ color: colors.GRAY, fontSize: fontSizes.FONT_16 }}>Xin chào, {user}</Text>
+                <Text style={{ color: colors.GRAY, fontSize: fontSizes.FONT_16 }}>Xin chào, {profile?.displayName}</Text>
             </Block>
             <Block row style={{ gap: 10 }}>
                 <Block>

@@ -12,7 +12,7 @@ import IconMT from 'components/icon/IconMT';
 import Spacer from 'components/base/Spacer';
 import Button from 'components/base/Button';
 import HeaderBase from 'components/base/HeaderBase';
-import { AddWalletService, DeleteWalletService, UpdateWalletService } from 'services/WalletServices';
+import { AddWalletService, DeleteWalletService, UpdateWalletService } from 'services/walletServices';
 import { RefreshControl } from 'react-native-gesture-handler';
 import ModalBottom from '@components/modal/ModalBottom'
 import { RootState, useAppDispatch } from 'store/store';

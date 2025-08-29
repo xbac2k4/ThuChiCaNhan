@@ -2,18 +2,14 @@ import { COMMON_PATHS } from '../navigation/Path';
 import { store } from '../store/store';
 import { storeT } from '../utils/Http';
 import { replace } from '../utils/NavigationUtils';
-import {
-  logout,
-} from './AuthServices';
-import moment from 'moment';
 import { doneFetching, fetching } from '../store/reducer/CommonReducer';
 import { UserLogin } from '../common/type';
-import { RemoveData } from '../store/reducer/AuthReducers';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { GoogleAuthProvider, getAuth, signInWithCredential } from '@react-native-firebase/auth';
 import logger from 'helper/logger';
 import { getListWalletThunk } from 'store/thunk/WalletThunk';
 import { getProfile } from 'store/thunk/AuthThunk';
+import { logout } from './authServices';
 
 const HandleGetInitData = async (isLoading?: boolean) => {
   isLoading && store.dispatch(fetching());
@@ -37,9 +33,9 @@ export const getNecessaryData = async () => {
     if (userToken) {
       const res = await store.dispatch(getProfile());
       
-      const profile = res.payload;
+      const profile = res.payload;      
       if (!profile) {
-        replace(COMMON_PATHS.LOGIN);
+        replace(COMMON_PATHS.SELECT_LOGIN);
       } else {
         await HandleGetInitData();
       }
@@ -95,7 +91,6 @@ export const LogoutUser = async () => {
   } catch (error) {
   } finally {
     replace(COMMON_PATHS.SELECT_LOGIN);
-    store.dispatch(RemoveData());
     store.dispatch(doneFetching());
   }
 };

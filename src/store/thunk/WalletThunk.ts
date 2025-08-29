@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getWalletService } from 'services/WalletServices';
+import { getWalletService } from 'services/walletServices';
 
 export const getListWalletThunk = createAsyncThunk<any[], void>(
     'wallet/list-wallet',

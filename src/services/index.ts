@@ -4,30 +4,45 @@ import { storeT } from '../utils/Http';
 import { replace } from '../utils/NavigationUtils';
 import {
   logout,
-} from './authServices';
+} from './AuthServices';
 import moment from 'moment';
-import { doneFetching, fetching } from '../store/reducer/commonReducer';
+import { doneFetching, fetching } from '../store/reducer/CommonReducer';
 import { UserLogin } from '../common/type';
 import { RemoveData } from '../store/reducer/AuthReducers';
-import { ResetAll } from '../store/reducer/UserReducers';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { GoogleAuthProvider, getAuth, signInWithCredential } from '@react-native-firebase/auth';
 import logger from 'helper/logger';
+import { getListWalletThunk } from 'store/thunk/WalletThunk';
+import { getProfile } from 'store/thunk/AuthThunk';
 
+const HandleGetInitData = async (isLoading?: boolean) => {
+  isLoading && store.dispatch(fetching());
+  try {
+    const dispatch = [
+      store.dispatch(getListWalletThunk()),
+    ];
+    await Promise.all(dispatch);
+    return replace(COMMON_PATHS.MAIN);
+  } catch (error) {
+    logger.error(error);
+  }
+  finally {
+    isLoading && store.dispatch(doneFetching());
+  }
+};
 
 export const getNecessaryData = async () => {
   const userToken = await storeT.getToken();
-
   try {
     if (userToken) {
-      // const res = await store.dispatch(getProfile());
-      // const profile = res.payload;
-      // if (!profile) {
-      //   replace(COMMON_PATHS.LOGIN);
-      // } else {
-      //   return replace(COMMON_PATHS.MAIN);
-      // }
-      replace(COMMON_PATHS.MAIN);
+      const res = await store.dispatch(getProfile());
+      
+      const profile = res.payload;
+      if (!profile) {
+        replace(COMMON_PATHS.LOGIN);
+      } else {
+        await HandleGetInitData();
+      }
     } else {
       await storeT.removeToken();
       replace(COMMON_PATHS.SELECT_LOGIN);
@@ -79,7 +94,6 @@ export const LogoutUser = async () => {
     await logout();
   } catch (error) {
   } finally {
-    store.dispatch(ResetAll());
     replace(COMMON_PATHS.SELECT_LOGIN);
     store.dispatch(RemoveData());
     store.dispatch(doneFetching());

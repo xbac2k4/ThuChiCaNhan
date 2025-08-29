@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   getMe,
-} from '../../services/authServices';
+} from '../../services/AuthServices';
 
 export const getProfile = createAsyncThunk('auth/profile', async () => {
   try {
-    const response = await getMe();
-    return response;
+    const res = await getMe();    
+    return res;
   } catch (error) { }
 });
 

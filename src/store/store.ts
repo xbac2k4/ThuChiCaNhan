@@ -1,15 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {useDispatch, useSelector} from 'react-redux';
 import type {TypedUseSelectorHook} from 'react-redux';
-import commonReducer from './reducer/commonReducer';
+import commonReducer from './reducer/CommonReducer';
 import AuthReducers from './reducer/AuthReducers';
-import UserReducers from './reducer/UserReducers';
+import WalletReducers from './reducer/WalletReducers';
 
 export const store = configureStore({
   reducer: {
     commonReducer: commonReducer,
     AuthReducer: AuthReducers,
-    UserReducer: UserReducers,
+    WalletReducer: WalletReducers,
   },
 });
 

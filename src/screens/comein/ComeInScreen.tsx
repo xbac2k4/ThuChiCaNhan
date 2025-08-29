@@ -8,13 +8,13 @@ import Icons from 'common/icons';
 import { bgColors, colors, fontSizes } from 'constants/theme';
 import InputLabel from 'components/base/InputLabel';
 import { AlertModal } from 'components/modal/MyModal';
-import { readCollection } from 'services/firebaseServices';
+import { readCollection } from 'services/FirebaseServices';
 import { formatCurrencyVND } from 'utils/FomatNumber';
 import IconMT from 'components/icon/IconMT';
 import Spacer from 'components/base/Spacer';
 import Button from 'components/base/Button';
 import HeaderBase from 'components/base/HeaderBase';
-import { AddWalletService, DeleteWalletService } from 'services/walletServices';
+import { AddWalletService, DeleteWalletService } from 'services/WalletServices';
 import logger from 'helper/logger';
 import { RefreshControl } from 'react-native-gesture-handler';
 import ModalBottom from '@components/modal/ModalBottom'
@@ -31,7 +31,7 @@ const ComeInScreen: React.FC<NavigationScreenProps> = ({
     const [isShowAdd, setIsShowAdd] = useState<boolean>(false);
     const [isVisibleOptions, setIsVisibleOptions] = useState<boolean>(false);
     const [refresh, setRefresh] = useState<boolean>(false);
-    const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [selectedId, setSelectedId] = useState<any | null>(null);
 
     const getInitData = async () => {
         const data = await readCollection('wallets');
@@ -99,7 +99,7 @@ const ComeInScreen: React.FC<NavigationScreenProps> = ({
         {
             title: "Xóa",
             onPress: async () => {
-                await DeleteWalletService(selectedId)
+                await DeleteWalletService(selectedId?.id)
                 getInitData();
             },
         },

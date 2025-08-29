@@ -48,6 +48,7 @@ export type LayoutInStyleType = {
   bottom?: number;
   right?: number;
   zIndex?: number;
+  gap?: number;
 };
 
 export type BorderInStyleType = {

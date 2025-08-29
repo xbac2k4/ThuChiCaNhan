@@ -218,6 +218,7 @@ export const AlertModal = memo(
                         }}
                       />
                       <Button
+                        linearColors={[bgColors.BG_BLUE, bgColors.BG_BLUE1]}
                         onPress={onPress}
                         name={textActionButton ? textActionButton : 'Ghi'}
                         colorText={colors?.WHITE}

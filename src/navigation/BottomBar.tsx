@@ -47,8 +47,6 @@ const MyTabBar = ({ state, descriptors, navigation }: any) => {
         <Block style={styles.tabBarContainer}>
             {state.routes.map((route: any, index: any) => {
                 const { options } = descriptors[route.key];
-                console.log('options', options);
-
                 const label =
                     options.tabBarLabel !== undefined
                         ? options.tabBarLabel

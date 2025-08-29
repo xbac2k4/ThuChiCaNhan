@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store/store';
-import { ListWalletThunk } from '../thunk/UserThunk';
+import { getListWalletThunk } from '../thunk/WalletThunk';
 
 type MainState = {
     list_wallet: any[]
@@ -9,8 +9,8 @@ const initState: MainState = {
     list_wallet: []
 };
 
-const userSlice = createSlice({
-    name: 'user',
+const walletSlice = createSlice({
+    name: 'wallet',
     initialState: initState,
     reducers: {
         ResetAll(state) {
@@ -19,7 +19,7 @@ const userSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-            .addCase(ListWalletThunk.fulfilled, (state, action) => {
+            .addCase(getListWalletThunk.fulfilled, (state, action) => {
                 state.list_wallet = action.payload;
             })
     },
@@ -29,8 +29,8 @@ export const {
     ResetAll,
 }: {
     ResetAll: () => PayloadAction<void>;
-} = userSlice.actions;
+} = walletSlice.actions;
 
-export default userSlice.reducer;
+export default walletSlice.reducer;
 
 export const selectCommonState = (state: RootState) => state.commonReducer;

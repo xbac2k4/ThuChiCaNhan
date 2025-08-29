@@ -1,15 +1,37 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, query, serverTimestamp, where } from '@react-native-firebase/firestore';
+import { getAuth } from '@react-native-firebase/auth';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, query, serverTimestamp, updateDoc, where } from '@react-native-firebase/firestore';
 
 const db = getFirestore();
+
+const formatTimestamp = (timestamp: any) => {
+  if (!timestamp) return null;
+  if (typeof timestamp.toDate === "function") {
+    return timestamp.toDate().toISOString();
+  }
+  return new Date(timestamp).toISOString();
+};
 // lấy dữ liệu
 export const readCollection = async (collectionName: string) => {
   try {
-    const collections = collection(db, collectionName)
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (!user) throw new Error("Người dùng chưa đăng nhập");
+
+    const q = query(collection(db, collectionName), where("userId", "==", user.uid));
+    const querySnapshot = await getDocs(q);
+
     const data: any[] = [];
-    const querySnapshot = await getDocs(collections);
     querySnapshot.forEach((doc: any) => {
-      data.push({ id: doc.id, ...doc.data() });
+      const docData = doc.data();
+
+      data.push({
+        id: doc.id,
+        ...docData,
+        createdAt: formatTimestamp(docData.createdAt),
+        updatedAt: formatTimestamp(docData.updatedAt),
+      });
     });
+
     return data;
   } catch (error) {
     console.error("Lỗi đọc Firestore:", error);
@@ -26,7 +48,6 @@ export const readDocument = async (collectionName: string, docId: string) => {
     if (docSnap.exists()) {
       return { id: docSnap.id, ...docSnap.data() };
     } else {
-      console.warn("Document không tồn tại:", docId);
       return null;
     }
   } catch (error) {
@@ -37,12 +58,16 @@ export const readDocument = async (collectionName: string, docId: string) => {
 
 export const addDocument = async (collectionName: string, data: Record<string, any>) => {
   try {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (!user) throw new Error("Người dùng chưa đăng nhập");
+
     const docRef = await addDoc(collection(db, collectionName), {
       ...data,
+      userId: user.uid,
       createdAt: serverTimestamp(),
     });
 
-    console.log("Document thêm thành công với ID:", docRef.id);
     return docRef.id;
   } catch (error) {
     console.error("Lỗi thêm document:", error);
@@ -51,11 +76,31 @@ export const addDocument = async (collectionName: string, data: Record<string, a
 };
 
 export const deleteData = async (collectionName: string, docId: string) => {
-  try {
+  try {    
     const docRef = doc(db, collectionName, docId);
     await deleteDoc(docRef);
-    console.log("Đã xóa thành công:", docId);
+    return { success: true, message: "Xóa thành công" };
   } catch (error) {
     console.error("Lỗi khi xóa dữ liệu:", error);
+    throw error;
+  }
+};
+
+export const updateDocument = async (
+  collectionName: string,
+  docId: string,
+  data: Record<string, any>
+) => {
+  try {
+    const docRef = doc(db, collectionName, docId);
+    await updateDoc(docRef, {
+      ...data,
+      updatedAt: serverTimestamp(),
+    });
+
+    return true;
+  } catch (error) {
+    console.error("Lỗi cập nhật document:", error);
+    return false;
   }
 };

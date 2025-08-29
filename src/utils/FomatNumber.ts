@@ -8,3 +8,11 @@ export const formatCurrencyVND = (amount: number): string => {
     minimumFractionDigits: 0,
   }).format(amount);
 };
+
+
+export const formatTextVND = (value: string | number) => {
+  if (!value) return "";
+  const number = Number(value.toString().replace(/\D/g, ""));
+  if (isNaN(number)) return "";
+  return number.toLocaleString("vi-VN");
+};

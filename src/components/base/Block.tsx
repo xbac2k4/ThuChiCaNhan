@@ -88,6 +88,7 @@ const Block = ({
   children,
   style,
   onPress,
+  gap,
   ...rest
 }: BlockType) => {
   const styledComponent = [
@@ -182,6 +183,7 @@ const Block = ({
       shadowRadius: 2.22,
       elevation: 3,
     },
+    gap && {gap: scale(gap)},
     style && style,
   ];
 

@@ -2,7 +2,7 @@ import Block from './Block';
 import Spacer from './Spacer';
 import { colors, fontSizes } from 'constants/theme';
 import { memo, useState } from 'react';
-import { TextInput, StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { TextInput, StyleSheet, TextStyle, ViewStyle, KeyboardTypeOptions } from 'react-native';
 import isEqual from 'react-fast-compare';
 import Icons from 'common/icons';
 import IconMT from 'components/icon/IconMT';
@@ -24,6 +24,8 @@ interface TextFieldBaseProps {
   };
   secureText?: boolean;
   mutilLine?: boolean;
+  keyboardType?: KeyboardTypeOptions;
+  require?: boolean;
 }
 
 const InputLabel: React.FC<TextFieldBaseProps> = ({
@@ -39,6 +41,8 @@ const InputLabel: React.FC<TextFieldBaseProps> = ({
   error,
   secureText,
   mutilLine,
+  keyboardType,
+  require,
 }) => {
   const [showPassword, setShowPassword] = useState(true);
 
@@ -49,12 +53,12 @@ const InputLabel: React.FC<TextFieldBaseProps> = ({
           <Block justifyBetween>
             <Text
               style={{
-                color: colors.BLACK,
-                fontWeight: 'bold',
+                color: colors.BLACK1,
                 fontSize: fontSizes.FONT_16,
                 ...(titleStyle as object),
               }}>
               {` ${title}`}
+              {require ? <Text style={{ color: colors.ERROR }}> *</Text> : null}
               {error ? <Text style={{ color: colors.ERROR }}> *</Text> : null}
             </Text>
           </Block>
@@ -76,6 +80,7 @@ const InputLabel: React.FC<TextFieldBaseProps> = ({
           allowFontScaling={false}
           multiline={mutilLine}
           value={textValue}
+          keyboardType={keyboardType}
           secureTextEntry={secureText ? showPassword : false}
           style={{ ...styles.defaultStyle, ...(inputStyle as object) }}
         />
@@ -97,7 +102,6 @@ const InputLabel: React.FC<TextFieldBaseProps> = ({
             style={{
               fontSize: fontSizes.FONT_12,
               color: colors.ERROR,
-              fontWeight: 'bold',
             }}>
             {error?.title}
           </Text>
@@ -117,7 +121,7 @@ const styles = StyleSheet.create({
     borderColor: colors.GRAY2,
     borderRadius: 5,
     paddingHorizontal: 8,
-    backgroundColor: colors.GRAY4,
+    backgroundColor: colors.TRANSPARENT,
     overflow: 'hidden',
   },
   defaultStyle: {

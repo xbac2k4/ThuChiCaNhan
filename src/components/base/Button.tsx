@@ -31,7 +31,7 @@ const Button: React.FC<ButtonType> = ({
       : colors.SECONDARY;
 
     return (
-      <TouchableOpacity activeOpacity={0.8} onPress={onPress}>
+      <TouchableOpacity style={{ flex: 1 }} activeOpacity={0.8} onPress={onPress}>
         <LinearGradient
           colors={linearColors ?? [bgColor, bgColor]}
           start={{ x: 0, y: 0 }}

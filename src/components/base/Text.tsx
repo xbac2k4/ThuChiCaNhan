@@ -1,7 +1,7 @@
 import React, { memo, ReactNode } from 'react';
 import { Text, TextStyle, TextProps } from 'react-native';
 import { stylesCustom } from 'constants/styleCustom';
-import { dimensions, fontSizes } from 'constants/theme';
+import { colors, dimensions, fontSizes } from 'constants/theme';
 
 interface TextViewProps extends TextProps {
   children: ReactNode;
@@ -13,8 +13,8 @@ const TextView: React.FC<TextViewProps> = ({ children, style, ...props }) => {
     <Text
       allowFontScaling={false}
       style={{
-        color: 'black',
-        fontSize: fontSizes.FONT_14,
+        color: colors.BLACK1,
+        fontSize: fontSizes.FONT_16,
         ...stylesCustom.textFont,
         ...style,
       }}

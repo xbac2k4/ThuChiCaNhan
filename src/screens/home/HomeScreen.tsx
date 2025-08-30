@@ -18,7 +18,7 @@ const HomeScreen: React.FC<NavigationScreenProps> = ({
     const [text, setText] = useState<string>('');
 
     return (
-        <Block flex={1}>
+        <Block flex={1} bg={colors.WHITE}>
             <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
                 <CustomHeader />
                 <View>

@@ -184,9 +184,9 @@ const WalletScreen: React.FC<NavigationScreenProps> = ({
     ];
 
     return (
-        <Block flex={1}>
-            <HeaderBase title='Tài khoản' />
-            <Block flex={1}>
+        <Block flex={1} bg={colors.WHITE}>
+            <HeaderBase title='Tài khoản'/>
+            <Block flex={1} zIndex={2}>
                 <Block flex={1}>
                     <FlatList
                         refreshControl={

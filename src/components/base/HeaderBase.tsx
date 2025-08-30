@@ -15,7 +15,7 @@ const HEADER_HEIGHT = 300;
 
 const HeaderBase: React.FC<HeaderBaseProps> = ({ title = '' }) => {
     return (
-        <Block>
+        <Block zIndex={1}>
             <Block style={styles.headerBg} />
             <Block ph={20} pt={50} row center middle mb={20}>
                 <Block middle center onPress={goBack}>

@@ -10,8 +10,14 @@ const Icons = {
   close: 'close',
   minus: 'minus',
   //
+  diamond: 'diamond',
+  //
   copyright: 'copyright',
   profile: 'account',
+  //
+  download: 'download',
+  delete_outline: 'delete-outline',
+  share_variant: 'share-variant',
   //  home: 'home',
   check_list: 'text-box-check-outline',
   car_fix: 'car-cog',

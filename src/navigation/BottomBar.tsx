@@ -100,9 +100,9 @@ const MyTabBar = ({ state, descriptors, navigation }: any) => {
                             options.tabBarIcon({
                                 focused: isFocused,
                                 color: isFocused ? bgColors.BLUE_BASE : colors.GRAY2,
-                                size: 26,
+                                size: 26,   
                             })}
-                        <Text style={{ fontWeight: 'bold', color: isFocused ? bgColors.BLUE_BASE : 'gray' }}>
+                        <Text style={{ fontWeight: '700', fontSize: fontSizes.FONT_12, color: isFocused ? bgColors.BLUE_BASE : 'gray' }}>
                             {label}
                         </Text>
                     </TouchableOpacity>
